@@ -111,7 +111,7 @@ function_name(args) {
 }
 ```
 
-# Using the Command line for Data Science 
+# 2. Using the Command line for Data Science 
 
 ### Let's talk about the weather
 Since there's been so much controversy over weather predictions from paid vs free apps this year, we're going to just do it ourselves and create out own predictions using weather data from NOAA. 
@@ -122,7 +122,7 @@ You can find daily data for the US here:
 
 (The documentation is [here](http://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf))
 
-### 2. Getting Data from the Command Line
+### Getting Data from the Command Line
 
 First we have to get the data. For that we're going to use curl.
 
