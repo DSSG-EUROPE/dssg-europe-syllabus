@@ -3,13 +3,13 @@ DSSG Europe 2018 teaching materials:
 https://github.com/dssg/hitchhikers-guide
 
 Technical support:
-* *Nuno Brás* - lead technical mentor
+* **Nuno Brás** - lead technical mentor
 
-* *Qiwei Han* - technical mentor
-* *William Grimes* - technical mentor
+* **Qiwei Han** - technical mentor
+* **William Grimes** - technical mentor
 
-* *Iñigo Martínez de Rituerto de Troya* - infrastructure and technical support
-* *João Fonseca* - infrastructure support
+* **Iñigo Martínez de Rituerto de Troya** - infrastructure and technical support
+* **João Fonseca** - infrastructure support
 
 Technical mentor’s role: 
 * Project mentor/consultant on technical side
