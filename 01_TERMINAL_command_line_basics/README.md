@@ -111,7 +111,7 @@ function_name(args) {
 }
 ```
 
-# 2. Using the Command line for Data Science 
+# Using the Command line for Data Science 
 
 ### Let's talk about the weather
 Since there's been so much controversy over weather predictions from paid vs free apps this year, we're going to just do it ourselves and create out own predictions using weather data from NOAA. 
