@@ -1,3 +1,4 @@
+# Command Line Basics
 The command line has many great advantages that can really make you a more efficient and productive data scientist. Roughly grouping the advantages, the command line is: agile, augmenting, scalable, extensible, and ubiquitous. We elaborate on each advantage below.
 * Agile - read-eval-print-loop (REPL) meaning you execute a command and it is evaluated immediately, rather than a edit-compile-run-debug cycle associated with scripts.
 * Augmenting - command line integrates well with other technologies. Python and R, for instance, allow you to run command-line tools and capture their output. 
@@ -7,7 +8,6 @@ The command line has many great advantages that can really make you a more effic
 
 Data comes in many forms and from many sources. You may for example get a database dump or CSV files directly from a data partner, or you may need to scrape the data from the web. Either way, once you've got your hands on some data, you'll need to bring it into a database, and start cleaning and "wrangling" it. You'll definitely want to keep track of the steps to take your data from its original, raw form to being model-ready, command line tools will start tocome in handy here.
 
-# 1. Command Line Basics
 ### Mind the command
 The first rule of command line is "be careful what you wish for". The computer will do exactly what you say, but human's may have trouble speaking the computer's language. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move, also used for renaming files). You can "echo" your commands to just print the command text without actually running the command. This can save your files and sometimes even your jorb! (Tip! Don't delete all your data with a misplaced `mv`)  
 

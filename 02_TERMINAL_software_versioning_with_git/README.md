@@ -1,4 +1,4 @@
-# Introduction to version control
+# Software Versioning with Git
 Version control systems are useful to manage source code over time, keeping track of modifications in a special database. This allows developers to return to an earlier state, or compare the code with earlier versions of the code. Version control protects source code from both catastrophe and the casual degradation of human error and unintended consequences. Version control helps teams solve conflicting code changes by tracking every individual change by each contributor and helping prevent concurrent work from conflicting. 
 
 One of the most popular version control systems (VCS) in use today is called Git. Git is a Distributed VCS, a category known as DVCS. Like many of the most popular VCS systems available today, Git is free and open source. Regardless of what they are called, or which system is used, the primary benefits you should expect from version control are as follows:
