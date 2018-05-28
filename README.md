@@ -47,3 +47,70 @@ Good news: DSSG is supported by Amazon Web Service Cloud Credits for Research pr
 Amazon Web Service (AWS) https://aws.amazon.com/
 
 Each fellow will be assigned a user account that allows you to make use of AWS service
+
+
+# Summer Tech Syllabus 
+
+This summer we go through a set of modules that will help you starting and/or growing as DataScientists for Social Good. Each session is briefly identified in square brackets in the calendar, like 
+
+> 
+
+
+
+#### - TERMINAL MODULE
+
+A set of lessons that introduce you and helps you to be productive while working in the terminal. This is specially important when working in virtual machines. The sessions are:
+
+| Sessions | Week |
+|:----:|
+|command line basics |w1|
+|software versioning with git |w1|
+|ssh and the cloud |w1|
+|git advanced |w3|
+
+
+
+#### - SQL MODULE
+
+A set of lessons to make you dominate simple and advanced SQL (PostGres) some relevant theoretical concepts.
+
+| Sessions | Week |
+|:----:|
+| sql basics |w1|
+| sql advanced |w3|
+| databases theory |w3|
+
+#### - PYTHON MODULE
+
+#### - DATA MODULE
+
+#### - ML MODULE
+
+#### - ETL MODULE
+
+
+
+
+
+| Modules | Sessions | Week |
+|----|----|----|
+| TERMINAL | command line basics |w1|
+| TERMINAL | software versioning with git |w1|
+| TERMINAL | ssh and the cloud |w1|
+| TERMINAL | git advanced |w3|
+| SQL | sql basics |w1|
+| SQL | sql advanced |w3|
+| SQL | databases theory |w3|
+| PYTHON | python beyond scripting |w2|
+| DATA | feature engineering |w4|
+| ML | quantitative social science |w4|
+| ML | causal inference |w4|
+| ML | ml intro |w3|
+| ML | ml models 1 |w4|
+| ML | ml models 2 |w6|
+| ETL | csvtodb and other simple data handling |w2|
+| ETL | dags and other workflow systems |w5|
+
+
+
+
