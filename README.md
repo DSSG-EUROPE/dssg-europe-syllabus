@@ -1,4 +1,4 @@
-# Overview and Softare Setup
+# Overview and Software Setup
 
 This repository contains teaching resources that we will use over the fellowship. It is supplementary to the [DSSG Hitchiker's Guide](https://github.com/dssg/hitchhikers-guide) and heavily sourced from it, which is an invaluable resource for doing any DSSG project. This repository is tailored specifically to the tutorials/classes we will be giving over the 2018 summer fellowship in Lisbon.
 
