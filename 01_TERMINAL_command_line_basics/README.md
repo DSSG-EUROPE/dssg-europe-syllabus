@@ -59,59 +59,8 @@ Bonus points:
 `rename 'y/A-Z/a-z/'` renames files to all-lowercase  
 `rename 'y/a-z/A-Z/'` renames files to all-uppercase  
 
-## Data structures
-Variables are declared with a single "=" and no spaces.
-
-`location="Lisbon"`  
-
-Arrays are enclosed in brackets.  
-`array=(abc 123 doremi)`  
-If you echo the array, you will get the first element.  
-```
-$ echo $array
-> abc
-```
-To echo the full array, expand the array with @:  
-```
-$ echo ${array[@]}
-> abc 123 doremi
-```
-
-## Control flow and logic
-Every bash statement is separated by a semicolon. This allows us to write one-liners that would normally be spread out over multiple lines.
-
-So a for loop...  
-```
-for i in {a..z}; do
-  echo $i;
-done
-```  
-...can be written as a one-liner:  
-```
-for i in {a..z}; do echo $i; done
-```
-
-## Tricks
-Brace expansion allows you to iterate over a range of possible variables.  
-```
-$ echo {0..9}
-> 0 1 2 3 4 5 6 7 8 9
-$ echo {0..9..2}
-> 0 2 4 8
-$ echo happy_birthday.{wav,mp3,flac}
-> happy_birthday.wav happy_birthday.mp3 happy_birthday.flac
-```
-
-## Functions
-We can write functions in shell scripts as well!
-The syntax looks like this...
-```
-function_name(args) {
-    function_body
-}
-```
-
 # Using the Command line for Data Science 
+If you have not yet installed the useful csvkit tool please follow the [link](https://csvkit.readthedocs.io/en/1.0.3/tutorial/1_getting_started.html#installing-csvkit) and install before doing these exercises.
 
 ### Let's talk about the weather
 Since there's been so much controversy over weather predictions from paid vs free apps this year, we're going to just do it ourselves and create out own predictions using weather data from NOAA. 
@@ -246,6 +195,7 @@ We can also use awk for subsitution, but this time, let's replace "WSFM" with "W
 
 
 # Further Reading:
+To learn more about useful command line tools for data science and shell scripting review the following:
 * https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools 
 * https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/4_programming_best_practices/living-in-the-terminal
 * https://medium.com/@kadek/command-line-tricks-for-data-scientists-c98e0abe5da
