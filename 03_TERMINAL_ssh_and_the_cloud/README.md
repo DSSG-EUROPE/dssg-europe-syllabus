@@ -1,9 +1,9 @@
 # SSH and the Cloud
-Each of you is assigned an individual account that will allow you tohave access to AWS.
+Each of you has been assigned an individual account that gives you access to AWS services.
 
-**DSSG-EUROPE AWSPortal:** https://dssg-europe.signin.aws.amazon.com/
+**AWSPortal:** https://dssg-europe.signin.aws.amazon.com/console
 
-**Username:** firstinitial + lastname (e.g. John Smith becomes jsmith)
+**Username:** _firstinitial + lastname_ (e.g. Alice Smith becomes asmith)
 
 **Password:** &ast;&ast;&ast;&ast;&ast;&ast;&ast; (you will be asked to change the password upon the first login)
 
