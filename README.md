@@ -16,7 +16,7 @@ This repository contains teaching resources that we will use over the fellowship
 
 Ask us anything about technical stuff. We will try our best to help you address the difficulties or direct you to the right person whenever necessary.
 
-### Local software setup for tutorials
+## Local software setup for tutorials
 * SSH (PuTTY for Windows)
 * Git (for version control)
 * psql (PostgreSQL command line interface)
