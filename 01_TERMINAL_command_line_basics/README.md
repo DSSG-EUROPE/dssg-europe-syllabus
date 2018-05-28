@@ -195,6 +195,7 @@ We can also use awk for subsitution, but this time, let's replace "WSFM" with "W
 
 
 # Further Reading:
+To learn more about useful command line tools for data science and shell scripting review the following:
 * https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools 
 * https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/4_programming_best_practices/living-in-the-terminal
 * https://medium.com/@kadek/command-line-tricks-for-data-scientists-c98e0abe5da
