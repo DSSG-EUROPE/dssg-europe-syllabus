@@ -16,4 +16,15 @@ AWS is one of the most popular cloud based computing services, along with Micros
 * **Amazon Simple Storage Service (S3)** - a highly scalable object storage that is suited to both small and large repositories of objects. The low cost service can be utilised for online backup and archiving of data and application programs and for content distribution as well as for big data analytics and disaster recovery. Storage is available in the form of any file or object and supports downloading, uploading and storage from across the web.
 * **Amazon Relational Database Service (RDS)** - is a distributed relational database service designed to simplify the setup, operation, and scaling of a relational database for use in applications.
 
-Typically a team will be given a shared EC2 instance to use for development with an associated EBS, data from project partners will be dumped into an S3 bucket. Usually this will be loaded into an RDS to improve query performance and create a single shared data repository, with a backup of the raw data in the S3 bucket.
+Typically a team will be given a shared EC2 instance to use for development with an associated EBS, data from project partners will be dumped into an S3 bucket. Usually this will be loaded into an RDS to improve query performance and create a single shared data repository, with a backup of the raw data in the S3 bucket. Using these tools along with Git allows for greater collaboration, computing scalability, and security. 
+
+# Secure Shell (SSH) 
+SSH can be used to access cloud services on AWS providing a secure channel over an unsecured network in a client-server architecture. This allows you to connect from your laptop to an EC2 instance and write and execute code remotely.
+
+## SSH key management
+On Unix-like systems, the list of authorized public keys is typically stored in the home directory of the user that is allowed to log in remotely, in the file `~/.ssh/authorized_keys`. This file is respected by SSH only if it is not writable by anything apart from the owner and root (`chmod 600`). When the public key is present on the remote end and the matching private key is present on the local end, typing in the password is no longer required. However, for additional security the private key itself can be locked with a passphrase.
+
+The private key can also be looked for in standard places, and its full path can be specified as a command line setting (the option -i for ssh). The ssh-keygen utility produces the public and private keys, always in pairs.
+
+SSH also supports password-based authentication that is encrypted by automatically generated keys. In this case, the attacker could imitate the legitimate server side, ask for the password, and obtain it (man-in-the-middle attack). However, this is possible only if the two sides have never authenticated before, as SSH remembers the key that the server side previously used. The SSH client raises a warning before accepting the key of a new, previously unknown server. Password authentication can be disabled.
+
