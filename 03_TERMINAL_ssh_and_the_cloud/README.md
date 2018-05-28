@@ -21,10 +21,19 @@ Typically a team will be given a shared EC2 instance to use for development with
 # Secure Shell (SSH) 
 SSH can be used to access cloud services on AWS providing a secure channel over an unsecured network in a client-server architecture. This allows you to connect from your laptop to an EC2 instance and write and execute code remotely.
 
-## SSH key management
+## Note on SSH key management
 On Unix-like systems, the list of authorized public keys is typically stored in the home directory of the user that is allowed to log in remotely, in the file `~/.ssh/authorized_keys`. This file is respected by SSH only if it is not writable by anything apart from the owner and root (`chmod 600`). When the public key is present on the remote end and the matching private key is present on the local end, typing in the password is no longer required. However, for additional security the private key itself can be locked with a passphrase.
 
 The private key can also be looked for in standard places, and its full path can be specified as a command line setting (the option -i for ssh). The ssh-keygen utility produces the public and private keys, always in pairs.
 
 SSH also supports password-based authentication that is encrypted by automatically generated keys. In this case, the attacker could imitate the legitimate server side, ask for the password, and obtain it (man-in-the-middle attack). However, this is possible only if the two sides have never authenticated before, as SSH remembers the key that the server side previously used. The SSH client raises a warning before accepting the key of a new, previously unknown server. Password authentication can be disabled.
+
+## Exercise
+
+1. Login to the AWS EC2 training instance:
+
+`ssh -i /path/key.pem username@training.dssg.io`
+
+2. Move to your training data folder:
+`cd /mnt/data/username`
 
