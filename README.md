@@ -71,7 +71,7 @@ which means
 A set of lessons that introduce you and helps you to be productive while working in the terminal. This is specially important when working in virtual machines. The sessions are:
 
 | Sessions | Week |
-|:----:|
+|:----:|----|
 |command line basics |w1|
 |software versioning with git |w1|
 |ssh and the cloud |w1|
@@ -83,7 +83,7 @@ A set of lessons that introduce you and helps you to be productive while working
 A set of lessons to make you dominate simple and advanced SQL (PostGres) and also some relevant database concepts.
 
 | Sessions | Week |
-|:----:|
+|:----:|----|
 | sql basics |w1|
 | sql advanced |w3|
 | databases theory |w3|
@@ -98,7 +98,7 @@ A module to make all on the same pace. We work with things like
 
 
 | Sessions | Week |
-|:----:|
+|:----:|----|
 | python beyond scripting |w2|
 
 
@@ -107,7 +107,7 @@ A module to make all on the same pace. We work with things like
 Handling of data using Pandas; feature extraction, transformation, selection; 
 
 | Sessions | Week |
-|:----:|
+|:----:|----|
 | feature engineering |w4|
 
 ### 5. Machine Learning Module
@@ -115,7 +115,7 @@ Handling of data using Pandas; feature extraction, transformation, selection;
 From general introduction to machine learning concepts up to a set of algorithms adapted to your problems.
 
 | Sessions | Week |
-|:----:|
+|:----:|----|
 | ml intro |w3|
 | quantitative social science |w4|
 | causal inference |w4|
@@ -127,7 +127,7 @@ From general introduction to machine learning concepts up to a set of algorithms
 How to bring data science solutions to production architectures. Workflows and data streamings; Data Warehouses and Data Lakes. 
 
 | Sessions | Week |
-|:----:|
+|:----:|----|
 | csvtodb and other simple data handling |w2|
 | dags and other workflow systems |w5|
 
