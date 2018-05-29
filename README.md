@@ -4,7 +4,7 @@ This repository contains teaching resources that we will use over the fellowship
 
 ## Technical support:
 * **Nuno Brás** - lead technical mentor
-* **Qiwei Han** - junior technical mentor
+* **Qiwei Han** - technical mentor
 * **William Grimes** - junior technical mentor
 * **Iñigo Martínez de Rituerto de Troya** - infrastructure and technical support
 * **João Fonseca** - infrastructure support
