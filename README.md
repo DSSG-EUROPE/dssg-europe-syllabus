@@ -55,7 +55,7 @@ Each fellow will be assigned a user account that allows you to make use of AWS s
 1. Have all software installed, running, and tested locally 
 2. Have a Github account created
 3. Join the two DSSG github organisations:
-   * [DSSG Chicago](https://dssg-github-invite.herokuapp.com/)
+   * [DSSG Chicago](https://dssg-github-invite.herokuapp.com/) - input your github username at this link.
    * [DSSG Europe](https://github.com/DSSG-EUROPE) - you will have received an invite through e-mail.
 4. Try to SSH into the training instance using your saved private key </br>
     `ssh -i ~/path/to/pemfile.pem username@35.176.252.186`
