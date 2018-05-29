@@ -19,23 +19,23 @@ Ask us anything about technical stuff. We will try our best to help you address 
 ## Local software setup for tutorials and projects
 * SSH (PuTTY for Windows)
 * Git (for version control)
-* psql (PostgreSQL command line interface)
+* pSQL (PostgreSQL command line interface)
 * IDE / text editor (Atom, Sublime, Vim, VS studio, PyCharm, Spyder, ...)
 * DBeaver (http://dbeaver.jkiss.org/)
-* Python 3.6 (https://www.python.org/downloads/)
-* [miniconda](https://conda.io/miniconda.html) or [pip/virtualenv] (https://pip.pypa.io/en/stable/installing/)
+* Python 3.6 (https://www.Python.org/downloads/)
+* [miniconda](https://conda.io/miniconda.htML) or [pip/virtualenv] (https://pip.pypa.io/en/stable/installing/)
 * Python Packages
     * pandas/numpy/scipy
     * matplotlib (https://matplotlib.org/)
     * scikit-learn (http://scikit-learn.org)
     * psycopg2 (http://initd.org/psycopg/)
-    * ipython (https://ipython.org/)
+    * iPython (https://iPython.org/)
     * jupyter (http://jupyter.org/)
 
 For more detail on the software setup have a look [here](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/software-setup).
 
 Try it out!
-You should give all installed software a quick spin to check that it did install. For your python packages, try to import them. Type `python` in your shell, and then once you are in your python session, try for example `import numpy`, `import matplotlib`, and so on. (You can quit with exit().) Also try ipython and jupyter notebook in your terminal, and see if you get any errors.
+You should give all installed software a quick spin to check that it did install. For your Python packages, try to import them. Type `Python` in your shell, and then once you are in your Python session, try for example `import numpy`, `import matplotlib`, and so on. (You can quit with exit().) Also try iPython and jupyter notebook in your terminal, and see if you get any errors.
 
 ## Working in the cloud
 Project work over the summer will be done in a cloud computing environment, where each project will have a seperate server (AWS EC2 instance) as their main server for large-scale data processing tasks, and a database to securely store the data. This is advantageous since data is maintained in one place, teams can collaborate easily, and you have access to scalable computing resources.
@@ -75,9 +75,9 @@ A set of lessons that introduce you and helps you to be productive while working
 
 | Sessions | Week |
 |:----:|----|
-|command line basics |w1|
-|software versioning with git |w1|
-|ssh and the cloud |w1|
+|Command line basics |w1|
+|Software versioning with git |w1|
+|SSH and the cloud |w1|
 |git advanced |w3|
 
 
@@ -87,9 +87,9 @@ A set of lessons to make you dominate simple and advanced SQL (PostGres) and als
 
 | Sessions | Week |
 |:----:|----|
-| sql basics |w1|
-| sql advanced |w3|
-| databases theory |w3|
+| SQL basics |w1|
+| SQL advanced |w3|
+| Databases theory |w3|
 
 ### 3. Python Module
 
@@ -102,7 +102,7 @@ A module to make all on the same pace. We work with things like
 
 | Sessions | Week |
 |:----:|----|
-| python beyond scripting |w2|
+| Python beyond scripting |w2|
 
 
 ### 4. Data Module
@@ -111,7 +111,7 @@ Handling of data using Pandas; feature extraction, transformation, selection;
 
 | Sessions | Week |
 |:----:|----|
-| feature engineering |w4|
+| Feature engineering |w4|
 
 ### 5. Machine Learning Module
 
@@ -119,11 +119,11 @@ From general introduction to machine learning concepts up to a set of algorithms
 
 | Sessions | Week |
 |:----:|----|
-| ml intro |w3|
-| quantitative social science |w4|
-| causal inference |w4|
-| ml models 1 |w4|
-| ml models 2 |w6|
+| ML intro |w3|
+| Quantitative Social Science |w4|
+| Causal inference |w4|
+| ML models 1 |w4|
+| ML models 2 |w6|
 
 ### 6. ETL Module
 
@@ -132,7 +132,7 @@ How to bring data science solutions to production architectures. Workflows and d
 | Sessions | Week |
 |:----:|----|
 | csvtodb and other simple data handling |w2|
-| dags and other workflow systems |w5|
+| DAGs and other workflow systems |w5|
 
 ---
 
@@ -140,22 +140,22 @@ How to bring data science solutions to production architectures. Workflows and d
 
 | Modules | Sessions | Week |
 |----|----|----|
-| TERMINAL | command line basics |w1|
-| TERMINAL | software versioning with git |w1|
-| TERMINAL | ssh and the cloud |w1|
-| SQL | sql basics |w1|
-| PYTHON | python beyond scripting |w2|
+| TERMINAL | Command line basics |w1|
+| TERMINAL | Software versioning with git |w1|
+| TERMINAL | SSH and the cloud |w1|
+| SQL | SQL basics |w1|
+| PYTHON | Python beyond scripting |w2|
 | ETL | csvtodb and other simple data handling |w2|
 | TERMINAL | git advanced |w3|
-| SQL | sql advanced |w3|
-| SQL | databases theory |w3|
-| ML | ml intro |w3|
-| DATA | feature engineering |w4|
-| ML | quantitative social science |w4|
-| ML | causal inference |w4|
-| ML | ml models 1 |w4|
-| ETL | dags and other workflow systems |w5|
-| ML | ml models 2 |w6|
+| SQL | SQL advanced |w3|
+| SQL | Databases theory |w3|
+| ML | ML intro |w3|
+| DATA | Feature engineering |w4|
+| ML | Quantitative social science |w4|
+| ML | Causal inference |w4|
+| ML | ML models 1 |w4|
+| ETL | DAGs and other workflow systems |w5|
+| ML | ML models 2 |w6|
 
 
 ---
