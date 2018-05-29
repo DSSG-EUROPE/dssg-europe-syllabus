@@ -57,7 +57,7 @@ Each fellow will be assigned a user account that allows you to make use of AWS s
 3. Join the two DSSG github organisations:
    * [DSSG Chicago](https://dssg-github-invite.herokuapp.com/)
    * [DSSG Europe](https://github.com/DSSG-EUROPE) - you will have received an invite through e-mail.
-4. Try to SSH into the training instance using your saved private key
+4. Try to SSH into the training instance using your saved private key </br>
     `ssh -i ~/path/to/pemfile.pem username@35.176.252.186`
 
 # Technical Syllabus 
