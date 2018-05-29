@@ -35,7 +35,6 @@ Ask us anything about technical stuff. We will try our best to help you address 
 * SSH (PuTTY for Windows)
 * IDE / text editor (Sublime, Vim, VS studio, PyCharm, Spyder, ...)
 * DBeaver (http://dbeaver.jkiss.org/)
-* IDE
 
 For more detail on the software setup have a look [here](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/software-setup).
 
