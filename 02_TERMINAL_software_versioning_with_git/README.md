@@ -9,35 +9,32 @@ One of the most popular version control systems (VCS) in use today is called Git
 There are many choices of VCS, but here we are going to focus on just one, Git.
 
 ## Installing Git:
-Install Git with Homebrew For OS X, you can follow these instructions to install Git:
+Install Git with Homebrew For OS X, you can follow these instructions to install Git:</br>
 `$ brew install git`
 
-for Linux users:
+for Linux users:</br>
 `$ sudo apt-get install git`
 
 ## Create your own github account
-
-https://www.startpage.com/do/search?query=sign%20up%20to%20github
+https://github.com/join
 
 ## Forking a repo
 The first step is to fork the GitHub repository with which youʼd like to work. For example, if you were interested in helping contribute to some project, you would first fork it. Forking it is basically making a copy of the repository, but with a link back to the original. Log-in into GitHub with your account. Find the GitHub repository with which youʼd like to work. Click the Fork button on the upper right-hand side of the repositoryʼs page.
 
 ## Clone the repo
-Clone the repository down to your local system using:
+Clone the repository down to your local system using:</br>
 `$ git clone https://github.com/username/training.git`
 
 Git will copy down the repository, both contents and commit history, to your system. Git will also add a Git remote called origin that points back to the forked repository in your GitHub account. If you were only interested in making a fork of the project and not contributing back to the original project, you could stop here. but if you want to contribute ...
 
 ## Add a remote
-Git already added a Git remote named origin to the clone of the Git repository on your system, and this will allow you to push changes back up to the forked repository in your GitHub account using git commit (to add commits locally) and git push.
+Git already added a Git remote named origin to the clone of the Git repository on your system, and this will allow you to push changes back up to the forked repository in your GitHub account using git commit (to add commits locally) and git push.</br>
 `$ git remote add upstream https://github.com/DSSG-EUROPE/training.git` 
 
-Confirm the remote is there:
-
+Confirm the remote is there:</br>
 `$ git remote -v`
 
-Now create a file called `hello_world` and commit it:
-
+Now create a file called `hello_world` and commit it:</br>
 `$ git add hello_world.txt`
 
 `$ git commit -m 'describe the commit...' hello_world.txt`
@@ -64,8 +61,8 @@ Switch between branches and work on each independently. Do not forget to commit 
 `$ git checkout new-feature`
 As a general rule of thumb, you should limit a branch to one logical change. The definition of one logical change will vary from project to project and developer to developer, but the basic idea is that you should only make the necessary changes to implement one specific feature or enhancement. As you make changes to the files in the branch, youʼll want to commit those changes, building your changeset with git add and committing the changes using git commit.
 
-Create another file and commit to this new branch :
-`$ git add`
+Create another file and commit to this new branch:</br>
+`$ git add`</br>  
 `$ git commit -m 'your commit message'`
 
 ## Pushing Changes to GitHub
@@ -87,11 +84,11 @@ This pulls the changes from the original repositoryʼs (indicated by upstream) m
 ## Resolve conflicts
 If you encounter a merge conflict when you pull. Remember to first commit your changes , pull and then solve the conflicts. You can use vim or any editor, or even git mergetool to fix the conflicts. Then add the fixed file and commit
 
-`$ git add filename.c`
+`$ git add filename.c`</br>
 `$ git commit -m "using theirs"`
 
 If you just want to force a merge either from theirs our ours :
-`$ git checkout --ours filename.c`
+`$ git checkout --ours filename.c`</br>
 `$ git checkout --theirs filename.c`
 
 If you want to merge branches then commit all your changes to the branch.
@@ -100,10 +97,11 @@ If you want to merge branches then commit all your changes to the branch.
 `$ git checkout master`
 `$ git merge new-feature`
 
-Delete the branch git branch -d
+Delete the branch git branch</br>
 `$ git branch -d new-feature`
 
-Then you can update the master branch in your forked repository: 
+Then you can update the master branch in your forked repository: </br>
+
 `$ git push origin master`
  And push the deletion of the feature branch to your GitHub repository
 
@@ -117,7 +115,7 @@ And thatʼs it! Youʼve just successfully created a feature branch, made some ch
 By the way, your forked repository doesnʼt automatically stay in sync with the original repository; you need to take care of this yourself. By the way, your forked repository doesnʼt automatically stay in sync with the original repository; you need to take care of this yourself. After all, in a healthy open source project, multiple contributors are forking the repository, cloning it, creating feature branches, committing changes, and submitting pull requests.
 To keep your fork in sync with the original repository, use these commands:
 
-`$ git pull upstream master`
+`$ git pull upstream master`</br>
 `$ git push origin master`
 
 This pulls the changes from the original repository (the one pointed to by the upstream Git remote) and pushes them to your forked repository (the one pointed to by the origin remote).
