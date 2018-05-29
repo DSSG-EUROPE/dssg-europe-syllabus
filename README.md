@@ -9,20 +9,21 @@ This repository contains teaching resources that we will use over the fellowship
 * **Iñigo Martínez de Rituerto de Troya** - infrastructure and technical support
 * **João Fonseca** - infrastructure support
 
-## Technical mentor’s role: 
+## Technical mentor’s role:
 * Project mentor/consultant on technical side
 * Core infrastructure maintenance (data, computing resources)
 * Technical training/support
 
 Ask us anything about technical stuff. We will try our best to help you address the difficulties or direct you to the right person whenever necessary.
 
-## Local software setup for tutorials
+## Local software setup for tutorials and projects
 * SSH (PuTTY for Windows)
 * Git (for version control)
 * psql (PostgreSQL command line interface)
-* Python (Anaconda/Miniconda https://www.continuum.io/downloads) or pip + virtualenv
-* IDE / text editor (Sublime, Vim, VS studio, PyCharm, Spyder, ...)
+* IDE / text editor (Atom, Sublime, Vim, VS studio, PyCharm, Spyder, ...)
 * DBeaver (http://dbeaver.jkiss.org/)
+* Python 3.6 (https://www.python.org/downloads/)
+* [miniconda](https://conda.io/miniconda.html) or [pip/virtualenv] (https://pip.pypa.io/en/stable/installing/)
 * Python Packages
     * pandas/numpy/scipy
     * matplotlib (https://matplotlib.org/)
@@ -30,11 +31,6 @@ Ask us anything about technical stuff. We will try our best to help you address 
     * psycopg2 (http://initd.org/psycopg/)
     * ipython (https://ipython.org/)
     * jupyter (http://jupyter.org/)
-
-## Local software setup for development
-* SSH (PuTTY for Windows)
-* IDE / text editor (Sublime, Vim, VS studio, PyCharm, Spyder, ...)
-* DBeaver (http://dbeaver.jkiss.org/)
 
 For more detail on the software setup have a look [here](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/software-setup).
 
@@ -52,7 +48,7 @@ Amazon Web Service (AWS) https://aws.amazon.com/
 Each fellow will be assigned a user account that allows you to make use of AWS service
 
 ## Checklist
-1. Have all software installed, running, and tested locally 
+1. Have all software installed, running, and tested locally
 2. Have a Github account created
 3. Join the two DSSG github organisations:
    * [DSSG Chicago](https://dssg-github-invite.herokuapp.com/) - input your github username at this link.
@@ -60,13 +56,13 @@ Each fellow will be assigned a user account that allows you to make use of AWS s
 4. Try to SSH into the training instance using your saved private key </br>
     `ssh -i ~/path/to/pemfile.pem username@35.176.252.186`
 
-# Technical Syllabus 
+# Technical Syllabus
 
-This summer we go through a set of modules that will help you starting and/or growing as DataScientists for Social Good. Each session is briefly identified in square brackets in the calendar, like 
+This summer we go through a set of modules that will help you starting and/or growing as DataScientists for Social Good. Each session is briefly identified in square brackets in the calendar, like
 
 > [All] [TERMINAL] 1 command line basics
 
-which means 
+which means
 
 > All to attend, Module TERMINAL, First lesson, about command line basics
 
@@ -97,11 +93,11 @@ A set of lessons to make you dominate simple and advanced SQL (PostGres) and als
 
 ### 3. Python Module
 
-A module to make all on the same pace. We work with things like 
+A module to make all on the same pace. We work with things like
 
 - Dictionaries and other structures
 - Functions, Classes and Objects, numpy, matplotlib
-- Python Code best practices 
+- Python Code best practices
 
 
 | Sessions | Week |
@@ -111,7 +107,7 @@ A module to make all on the same pace. We work with things like
 
 ### 4. Data Module
 
-Handling of data using Pandas; feature extraction, transformation, selection; 
+Handling of data using Pandas; feature extraction, transformation, selection;
 
 | Sessions | Week |
 |:----:|----|
@@ -131,7 +127,7 @@ From general introduction to machine learning concepts up to a set of algorithms
 
 ### 6. ETL Module
 
-How to bring data science solutions to production architectures. Workflows and data streamings; Data Warehouses and Data Lakes. 
+How to bring data science solutions to production architectures. Workflows and data streamings; Data Warehouses and Data Lakes.
 
 | Sessions | Week |
 |:----:|----|
@@ -166,7 +162,7 @@ How to bring data science solutions to production architectures. Workflows and d
 
 ## Extra: Special Sessions
 
-- This sessions should be given in order to fulfill lack of knowledge in specific areas that could make a huge difference to some groups; 
+- This sessions should be given in order to fulfill lack of knowledge in specific areas that could make a huge difference to some groups;
 - They are not compulsory.
 - They actually can be given by fellows!
 
@@ -174,10 +170,9 @@ here are some examples:
 
 | Special Sessions |
 |----|
-| Web Scrapping | 
-| Gis analysis | 
-| Network Analysis | 
-| Text Analysis | 
-| Record Linkage | 
-| Optimization | 
-
+| Web Scrapping |
+| GIS analysis |
+| Network Analysis |
+| Text Analysis |
+| Record Linkage |
+| Optimization |
