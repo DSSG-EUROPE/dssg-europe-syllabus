@@ -51,4 +51,125 @@ Amazon Web Service (AWS) https://aws.amazon.com/
 
 Each fellow will be assigned a user account that allows you to make use of AWS service
 
-# Technical Syllabus
+
+# Technical Syllabus 
+
+This summer we go through a set of modules that will help you starting and/or growing as DataScientists for Social Good. Each session is briefly identified in square brackets in the calendar, like 
+
+> [All] [TERMINAL] 1 command line basics
+
+which means 
+
+> All to attend, Module TERMINAL, First lesson, about command line basics
+
+
+
+
+### 1. Terminal Module
+
+A set of lessons that introduce you and helps you to be productive while working in the terminal. This is specially important when working in virtual machines. The sessions are:
+
+| Sessions | Week |
+|:----:|----|
+|command line basics |w1|
+|software versioning with git |w1|
+|ssh and the cloud |w1|
+|git advanced |w3|
+
+
+### 2. SQL Module
+
+A set of lessons to make you dominate simple and advanced SQL (PostGres) and also some relevant database concepts.
+
+| Sessions | Week |
+|:----:|----|
+| sql basics |w1|
+| sql advanced |w3|
+| databases theory |w3|
+
+### 3. Python Module
+
+A module to make all on the same pace. We work with things like 
+
+- Dictionaries and other structures
+- Functions, Classes and Objects, numpy, matplotlib
+- Python Code best practices 
+
+
+| Sessions | Week |
+|:----:|----|
+| python beyond scripting |w2|
+
+
+### 4. Data Module
+
+Handling of data using Pandas; feature extraction, transformation, selection; 
+
+| Sessions | Week |
+|:----:|----|
+| feature engineering |w4|
+
+### 5. Machine Learning Module
+
+From general introduction to machine learning concepts up to a set of algorithms adapted to your problems.
+
+| Sessions | Week |
+|:----:|----|
+| ml intro |w3|
+| quantitative social science |w4|
+| causal inference |w4|
+| ml models 1 |w4|
+| ml models 2 |w6|
+
+### 6. ETL Module
+
+How to bring data science solutions to production architectures. Workflows and data streamings; Data Warehouses and Data Lakes. 
+
+| Sessions | Week |
+|:----:|----|
+| csvtodb and other simple data handling |w2|
+| dags and other workflow systems |w5|
+
+---
+
+## Final Syllabus
+
+| Modules | Sessions | Week |
+|----|----|----|
+| TERMINAL | command line basics |w1|
+| TERMINAL | software versioning with git |w1|
+| TERMINAL | ssh and the cloud |w1|
+| SQL | sql basics |w1|
+| PYTHON | python beyond scripting |w2|
+| ETL | csvtodb and other simple data handling |w2|
+| TERMINAL | git advanced |w3|
+| SQL | sql advanced |w3|
+| SQL | databases theory |w3|
+| ML | ml intro |w3|
+| DATA | feature engineering |w4|
+| ML | quantitative social science |w4|
+| ML | causal inference |w4|
+| ML | ml models 1 |w4|
+| ETL | dags and other workflow systems |w5|
+| ML | ml models 2 |w6|
+
+
+---
+
+## Extra: Special Sessions
+
+- This sessions should be given in order to fulfill lack of knowledge in specific areas that could make a huge difference to some groups; 
+- They are not compulsory.
+- They actually can be given by fellows!
+
+here are some examples:
+
+| Special Sessions |
+|----|
+| Web Scrapping | 
+| Gis analysis | 
+| Network Analysis | 
+| Text Analysis | 
+| Record Linkage | 
+| Optimization | 
+
