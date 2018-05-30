@@ -9,13 +9,13 @@ One of the most popular version control systems (VCS) in use today is called Git
 There are many choices of VCS, but here we are going to focus on just one, Git.
 
 ## Installing Git:
-Check if you have git already installed on your machine by running the command:
+Check if you have git already installed on your machine by running the command:  
 `$ git`
 
-Install Git with Homebrew For OS X, you can follow these instructions to install Git:
+Install Git with Homebrew For OS X, you can follow these instructions to install Git:  
 `$ brew install git`
 
-for Linux users:
+for Linux users:  
 `$ sudo apt-get install git`
 
 ## Create your own github account
@@ -27,10 +27,10 @@ To work on an existing code base you need to “fork” the repository. A [fork]
 
 We are going to work in the `training2018` repository, so let’s create a copy of it in our GitHub account, by forking it.
 
-In your browser navigate to the original repository @  https://github.com/DSSG-EUROPE/training2018 and select the “Fork” button in the top right of the screen. Now you will have a “forked” copy of the repo under your username: https://github.com/<username>/training2018
+In your browser navigate to the original repository @  https://github.com/DSSG-EUROPE/training2018 and select the “Fork” button in the top right of the screen. Now you will have a “forked” copy of the repo under your username: `https://github.com/<username>/training2018`
 
 ## Clone the repo
-Navigate to a directory on your computer where you would like to keep your work and clone the forked repository down to your local system using the command:
+Navigate to a directory on your computer where you would like to keep your work and clone the forked repository down to your local system using the command:  
 `$ git clone https://github.com/<username>/training.git`
 
 Git will copy the repository onto your system, along with its  content and the commit history. The repository that was cloned (your fork) is known as the “origin”. To your computer, it is also known as a “remote” (because it is remote relative your own “local” machine). However, if you were only interested in making a fork of the project and not contributing back to the original project, you could stop here. but if you want to contribute …
@@ -63,22 +63,22 @@ The purpose of a branch is to help facilitate multiple users making changes to a
 The basic flow looks something like this (all this is happening on your local Git repository):
 
 Create and checkout a feature branch.  
-Make changes to the files.
-Commit your changes to the branch.
+Make changes to the files.  
+Commit your changes to the branch.  
 
 Because of the way that Git works, itʼs incredibly fast and easy for developers to create multiple branches.
 
-To create a new branch and check it out (meaning tell Git you will be making changes to the branch):
-`$ git checkout -b new-feature`
-you can always check on which branch you are with:
-`$ git branch`
-Switch between branches and work on each independently. Do not forget to commit your changes to the your fork.
-`$ git checkout master`
+To create a new branch and check it out (meaning tell Git you will be making changes to the branch):  
+`$ git checkout -b new-feature`  
+you can always check on which branch you are with:  
+`$ git branch`  
+Switch between branches and work on each independently. Do not forget to commit your changes to the your fork.  
+`$ git checkout master`  
 `$ git checkout new-feature`  
-As a general rule of thumb, you should limit a branch to one logical change. The definition of “one logical change” will vary from project to project and developer to developer, but the basic idea is that you should only make the necessary changes to implement one specific feature or enhancement. As you make changes to the files in the branch, youʼll want to commit those changes, building your changeset with ‘$ git add’, and committing the changes using ‘$ git commit’.
+As a general rule of thumb, you should limit a branch to one logical change. The definition of “one logical change” will vary from project to project and developer to developer, but the basic idea is that you should only make the necessary changes to implement one specific feature or enhancement. As you make changes to the files in the branch, youʼll want to commit those changes, building your changeset with `$ git add`, and committing the changes using `$ git commit`.
 
-Create another file and commit to this new branch:
-`$ git add feature_implementation.py`
+Create another file and commit to this new branch:  
+`$ git add feature_implementation.py`  
 `$ git commit -m “Description of the new feature”`
 
 ## Pushing Changes to GitHub
@@ -104,11 +104,11 @@ This pulls the changes from the original repositoryʼs (indicated by upstream) m
 ## Resolve conflicts
 If you encounter a merge conflict when you pull. Remember to first commit your changes , pull and then solve the conflicts. You can use vim or any editor, or even git mergetool to fix the conflicts. Then add the fixed file and commit
 
-`$ git add filename.c`</br>
+`$ git add filename.c`  
 `$ git commit -m "using theirs"`
 
-If you just want to force a merge either from theirs our ours :
-`$ git checkout --ours filename.c`</br>
+If you just want to force a merge either from theirs or ours:  
+`$ git checkout --ours filename.c`  
 `$ git checkout --theirs filename.c`
 
 If you want to merge branches then commit all your changes to the branch.
@@ -117,10 +117,10 @@ If you want to merge branches then commit all your changes to the branch.
 `$ git checkout master`
 `$ git merge new-feature`
 
-Delete the branch git branch</br>
+Delete the branch git branch  
 `$ git branch -d new-feature`
 
-Then you can update the master branch in your forked repository: </br>
+Then you can update the master branch in your forked repository:
 
 `$ git push origin master`
  And push the deletion of the feature branch to your GitHub repository
@@ -135,7 +135,7 @@ And thatʼs it! Youʼve just successfully created a feature branch, made some ch
 By the way, your forked repository doesnʼt automatically stay in sync with the original repository; you need to take care of this yourself. By the way, your forked repository doesnʼt automatically stay in sync with the original repository; you need to take care of this yourself. After all, in a healthy open source project, multiple contributors are forking the repository, cloning it, creating feature branches, committing changes, and submitting pull requests.
 To keep your fork in sync with the original repository, use these commands:
 
-`$ git pull upstream master`</br>
+`$ git pull upstream master`  
 `$ git push origin master`
 
 This pulls the changes from the original repository (the one pointed to by the upstream Git remote) and pushes them to your forked repository (the one pointed to by the origin remote).
