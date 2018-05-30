@@ -8,15 +8,6 @@ The command line has many great advantages that can really make you a more effic
 
 Data comes in many forms and from many sources. You may for example get a database dump or CSV files directly from a data partner, or you may need to scrape the data from the web. Either way, once you've got your hands on some data, you'll need to bring it into a database, and start cleaning and "wrangling" it. You'll definitely want to keep track of the steps to take your data from its original, raw form to being model-ready, command line tools will start tocome in handy here.
 
-### A few tips
-* Be careful what you wish for, the command line is very powerful, it will do exactly what you ask. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move). You can "echo" your commands to just print the command text without actually running the command.  
-* Prepend `man` to a command to read the manual for example `man rm`
-* You can use `ctrl + r` to check the command line history, and search for previously searched commands
-* Beware of spaces when creating filenames, this is not generally good practice, if you must you can use the `\` escape character to add blank spaces in a file name. For example `touch space\ bars\ .txt`, if you run `touch space bars .txt` this will create three files `space`, `bars`, and `.txt`.
-* Have a look into using tmux or a similar terminal multiplexer for working with multiple terminals.
-* Use `htop` or `top` for monitoring the usage of your instance.
-* Have a go at learning the basics of `vim`, since it is ubiquitous on unix servers.
-
 ## The basics
 ### Where am I?
 `pwd` print working directory - this prints the name of the current working directory  
@@ -55,6 +46,15 @@ You can replace multiple characters at a time by using a simple logical OR "regu
 Bonus points:  
 `rename 'y/A-Z/a-z/'` renames files to all-lowercase  
 `rename 'y/a-z/A-Z/'` renames files to all-uppercase  
+
+## Some useful things to know
+* Be careful what you wish for, the command line is very powerful, it will do exactly what you ask. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move). You can "echo" your commands to just print the command text without actually running the command.  
+* Prepend `man` to a command to read the manual for example `man rm`
+* You can use `ctrl + r` to search the command line history, and search for previously searched commands. Or type `history` to see the history`.
+* Beware of spaces when creating filenames, this is not generally good practice, if you must you can use the `\` escape character to add blank spaces in a file name. For example `touch space\ bars\ .txt`, if you run `touch space bars .txt` this will create three files `space`, `bars`, and `.txt`.
+* Have a look into using `tmux` or a similar terminal multiplexer for working with multiple terminals (see further reading living-in-the-terminal).
+* Use `htop` or `top` for monitoring the usage of your instance.
+* Have a go at learning the basics of `vim`, since it is ubiquitous on unix servers (see further reading living-in-the-terminal).
 
 # Using the Command line for Data Science 
 If you have not yet installed the useful csvkit tool please follow the [link](https://csvkit.readthedocs.io/en/1.0.3/tutorial/1_getting_started.html#installing-csvkit) and install before doing these exercises.
