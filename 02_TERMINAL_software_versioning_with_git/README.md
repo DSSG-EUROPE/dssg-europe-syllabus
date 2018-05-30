@@ -30,7 +30,7 @@ The README.md file is empty right now, but as the project evolves it will be use
 The project folder will look the same, but now `git` will be working in the background to track the history of every file. We can have a look under the hood by inspecting the hidden directory called `.git`  
 `$ ls .git`
 
-First, let's add a title content to the README file.
+First, let's add a title content to the README file.  
 `$ echo "# tracker" >> README.md`
 
 We may want to take a snapshot of the project at its current state, so we can revisit it later in case something breaks.
@@ -49,7 +49,7 @@ Now add a short description of the project and commit the change.
 `$ Project description`
 
 Now we can see all our changes until now in the log.  
-`$ git log  
+`$ git log`  
 `$ git log --graph --oneline --decorate --all`
 
 
