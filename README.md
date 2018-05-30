@@ -75,10 +75,10 @@ A set of lessons that introduce you and helps you to be productive while working
 
 | Sessions | Week |
 |:----:|----|
-|Command line basics |w1|
-|Software versioning with git |w1|
-|SSH and the cloud |w1|
-|git advanced |w3|
+| Command line basics |w1|
+| Software versioning with git |w1|
+| SSH and the cloud |w1|
+| git advanced |w2|
 
 
 ### 2. SQL Module
@@ -146,7 +146,7 @@ How to bring data science solutions to production architectures. Workflows and d
 | SQL | SQL basics |w1|
 | PYTHON | Python beyond scripting |w2|
 | ETL | csvtodb and other simple data handling |w2|
-| TERMINAL | git advanced |w3|
+| TERMINAL | git advanced |w2|
 | SQL | SQL advanced |w3|
 | SQL | Databases theory |w3|
 | ML | ML intro |w3|
