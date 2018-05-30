@@ -1,2 +1,2 @@
 Bangkok
-Bangkok
+PNW
