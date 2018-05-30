@@ -51,6 +51,7 @@ Bonus points:
 
 ## Some useful things to know
 * Be careful what you wish for, the command line is very powerful, it will do exactly what you ask. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move). You can "echo" your commands to just print the command text without actually running the command.  
+* Use tab completion to type commands faster and find filenames, press the tab key whilst typing to see suggestions  `tab`
 * Prepend `man` to a command to read the manual for example `man rm`
 * You can use `ctrl + r` to search the command line history, and search for previously searched commands. Or type `history` to see the history`.
 * Beware of spaces when creating filenames, this is not generally good practice, if you must you can use the `\` escape character to add blank spaces in a file name. For example `touch space\ bars\ .txt`, if you run `touch space bars .txt` this will create three files `space`, `bars`, and `.txt`.
