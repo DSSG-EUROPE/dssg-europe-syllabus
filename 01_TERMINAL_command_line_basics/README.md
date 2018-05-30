@@ -13,10 +13,12 @@ Data comes in many forms and from many sources. You may for example get a databa
 `pwd` print working directory - this prints the name of the current working directory  
 `cd ..` changes directory to one level/folder up  
 `cd ~/` goes to the home directory  
+`cd -` return to the previous directory
 
 ### What's in my folder?
 `ls` lists the contents in your current dictory.  
 `ls -l` "long listing" format (`-l`) shows the filesize, date of last change, and file permissions  
+`ls -l` "long listing" format (`-l`), shows all files (`-a`) including hidden dotfiles
 `tree` lists the contents of the current directory and all sub-directories as a tree structure (great for peeking into folder structures!)  
 `tree -L 2` limits the tree expansion to 2 levels  
 `tree -hs` shows file sizes (`-s`) in human-readable format (`-h`)  
@@ -55,6 +57,7 @@ Bonus points:
 * Have a look into using `tmux` or a similar terminal multiplexer for working with multiple terminals (see further reading living-in-the-terminal).
 * Use `htop` or `top` for monitoring the usage of your instance.
 * Have a go at learning the basics of `vim`, since it is ubiquitous on unix servers (see further reading living-in-the-terminal).
+* If you are not familiar with regular expressions, have a look at further readings (learning regular expressions the practical way).
 
 # Using the Command line for Data Science 
 If you have not yet installed the useful csvkit tool please follow the [link](https://csvkit.readthedocs.io/en/1.0.3/tutorial/1_getting_started.html#installing-csvkit) and install before doing these exercises.
@@ -196,3 +199,4 @@ To learn more about useful command line tools for data science and shell scripti
 * https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools 
 * https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/4_programming_best_practices/living-in-the-terminal
 * https://medium.com/@kadek/command-line-tricks-for-data-scientists-c98e0abe5da
+* https://hugogiraudel.com/2015/08/19/learning-regular-expressions-the-practical-way/
