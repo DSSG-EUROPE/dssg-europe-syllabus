@@ -78,7 +78,6 @@ A set of lessons that introduce you and helps you to be productive while working
 | Command line basics |w1|
 | Software versioning with git |w1|
 | SSH and the cloud |w1|
-| git advanced |w2|
 
 
 ### 2. SQL Module
