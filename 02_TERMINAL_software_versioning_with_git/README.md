@@ -18,8 +18,44 @@ Install Git with Homebrew For OS X, you can follow these instructions to install
 for Linux users:  
 `$ sudo apt-get install git`
 
-## Create your own github account
-If you don’t already have one, [create your own GitHub account](https://www.startpage.com/do/search?query=sign%20up%20to%20github)
+## Initialize a git repository on your local computer
+Create a new folder for a project that you will want to track changes on, and create a README.md file.  
+`$ mkdir tracker`  
+`$ cd tracker`  
+`$ touch README.md`  
+
+The README.md file is empty right now, but as the project evolves it will be used to document the code. As the code changes, so will the documentation, so it will be useful to keep track of what the file used to say about different earlier versions of the code. To do this with `git`, initialize a git repository in this directory.
+`$ git init`
+
+The project folder will look the same, but now `git` will be working in the background to track the history of every file. We can have a look under the hood by inspecting the hidden directory called `.git`  
+`$ ls .git`
+
+First, let's add a title content to the README file.
+`$ echo "# tracker" >> README.md`
+
+We may want to take a snapshot of the project at its current state, so we can revisit it later in case something breaks.
+
+Creating a "snapshot" in git involves two steps: (1) adding the file to the "staging area", and (2) committing the changes.
+
+The staging area acts as an intermediate zone where we can gather various files that we wish to group together under a single commit. First add all the files to the staging area that you wish to commit, and then commit them, and write a "commit message" describing the changes you made.  
+`$ git add README.md`  
+`$ git commit`  
+`$ Creating the README`
+
+Now add a short description of the project and commit the change.  
+`$ echo "Time to track!" >> README.md`"`  
+`$ git add README.md`  
+`$ git commit`  
+`$ Project description`
+
+Now we can see all our changes until now in the log.  
+`$ git log  
+`$ git log --graph --oneline --decorate --all`
+
+
+## Let's share our project on the internet!
+(Adding an existing project to GitHub using the command line)[https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/]
+
 
 
 ## Forking a repo
@@ -96,9 +132,9 @@ GitHub makes this part incredibly easy. Once you push a new branch up to your re
 Ask someone on your team accept your pull request. This way you can make sure that somehow has read through your code and check that it makes sense and won’t cause any problems.
 
 ## Cleaning up After a Merged Pull Request
-If the maintainers accept your changes and merge them into the main repository, then there is a little bit of clean-up for you to do. First, you should update your local clone by using:
-`$ git pull upstream master`
-`$ git push upstream master`
+If the maintainers accept your changes and merge them into the main repository, then there is a little bit of clean-up for you to do. First, you should update your local clone by using:  
+`$ git pull upstream master`  
+`$ git push upstream master`  
 This pulls the changes from the original repositoryʼs (indicated by upstream) master branch (indicated by master in that command) to your local cloned repository. One of the commits in the commit history will be the commit that merged your feature branch, so after you `git pull`, your local repositoryʼs master branch will have your feature branchʼs changes committed. This means you can delete the feature branch (because the changes are already in the master branch).
 
 ## Resolve conflicts
@@ -114,19 +150,16 @@ If you just want to force a merge either from theirs or ours:
 If you want to merge branches then commit all your changes to the branch.
 
 ## Merge the branch
-`$ git checkout master`
+`$ git checkout master`  
 `$ git merge new-feature`
 
 Delete the branch git branch  
 `$ git branch -d new-feature`
 
-Then you can update the master branch in your forked repository:
-
+Then you can update the master branch in your forked repository:  
 `$ git push origin master`
- And push the deletion of the feature branch to your GitHub repository
 
-git push --delete origin
-
+And push the deletion of the feature branch to your GitHub repository  
 `$ git push --delete origin new-feature`
 
 And thatʼs it! Youʼve just successfully created a feature branch, made some changes, committed those changes to your repository, pushed them to GitHub, opened a pull request, had your changes merged by the maintainers, and then cleaned up.
