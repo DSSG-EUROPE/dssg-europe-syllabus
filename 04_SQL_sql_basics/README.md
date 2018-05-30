@@ -26,7 +26,7 @@ Let's get data FROM several places and make a file with all results identified b
 
 This is something you should submit at the end of the session, to the repo to 
 
-`dssg-europe-syllabus/04_SQL_sql_basics/exercises`
+`dssg-europe-syllabus/04_SQL_sql_basics/exercises/[your_name_folder]`
 
 
 ### Database Scenario: The food inspections data set
@@ -147,7 +147,7 @@ having
 - after query was done with having
 
 
-**8. Submit your data! Create a file with your name with your queries, and your answers (when they make sense) and push it to the `/exercises` directory on this Repo**
+**8. Submit your data! Create a file with your name with your queries, and your answers (when they make sense) and push it to the `/exercises/[your_name_folder]` directory on this Repo**
 
 Let's get a little more analytical
 

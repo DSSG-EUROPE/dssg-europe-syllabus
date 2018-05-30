@@ -61,7 +61,7 @@ Let's get data from several places and make a file called here as `answer_file` 
 
 This is something you should submit at the end of the session, to the repo to 
 
-`dssg-europe-syllabus/03_TERMINAL_ssh_and_the_cloud/exercises`
+`dssg-europe-syllabus/03_TERMINAL_ssh_and_the_cloud/exercises/[your_name_folder]`
 
 
 ### Connection to S3
