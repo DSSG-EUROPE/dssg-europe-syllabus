@@ -1,4 +1,4 @@
-# Command Line Basics
+# Command Line 
 The command line has many great advantages that can really make you a more efficient and productive data scientist. Roughly grouping the advantages, the command line is: agile, augmenting, scalable, extensible, and ubiquitous. We elaborate on each advantage below.
 * Agile - read-eval-print-loop (REPL) meaning you execute a command and it is evaluated immediately, rather than a edit-compile-run-debug cycle associated with scripts.
 * Augmenting - command line integrates well with other technologies. Python and R, for instance, allow you to run command-line tools and capture their output. 
@@ -8,27 +8,17 @@ The command line has many great advantages that can really make you a more effic
 
 Data comes in many forms and from many sources. You may for example get a database dump or CSV files directly from a data partner, or you may need to scrape the data from the web. Either way, once you've got your hands on some data, you'll need to bring it into a database, and start cleaning and "wrangling" it. You'll definitely want to keep track of the steps to take your data from its original, raw form to being model-ready, command line tools will start tocome in handy here.
 
-### Mind the command
-The first rule of command line is "be careful what you wish for". The computer will do exactly what you say, but human's may have trouble speaking the computer's language. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move, also used for renaming files). You can "echo" your commands to just print the command text without actually running the command. This can save your files and sometimes even your jorb! (Tip! Don't delete all your data with a misplaced `mv`)  
-
-You can create dummy files to use for this tutorial sing the `touch` command, in case you don't want to operate on real files until you're comfortable with these commands. Let's start by creating a file with space bars in the name.  
-
-`touch space\ bars\ .txt`
-
-Note the use of the escape character `\` to signal that we intend to use the space bar as a character in our filename string. Without the backslashes, the command is interepreted as `touch` with several separate arguments, so in fact...  
-
-`touch space bars .txt`  
-
-...will create 3 files seperate files! `space`, `bars`, and `.txt`.
-
+## The basics
 ### Where am I?
-`pwd` prints the name of the current working directory  
+`pwd` print working directory - this prints the name of the current working directory  
 `cd ..` changes directory to one level/folder up  
 `cd ~/` goes to the home directory  
+`cd -` return to the previous directory
 
 ### What's in my folder?
 `ls` lists the contents in your current dictory.  
 `ls -l` "long listing" format (`-l`) shows the filesize, date of last change, and file permissions  
+`ls -l` "long listing" format (`-l`), shows all files (`-a`) including hidden dotfiles
 `tree` lists the contents of the current directory and all sub-directories as a tree structure (great for peeking into folder structures!)  
 `tree -L 2` limits the tree expansion to 2 levels  
 `tree -hs` shows file sizes (`-s`) in human-readable format (`-h`)  
@@ -58,6 +48,16 @@ You can replace multiple characters at a time by using a simple logical OR "regu
 Bonus points:  
 `rename 'y/A-Z/a-z/'` renames files to all-lowercase  
 `rename 'y/a-z/A-Z/'` renames files to all-uppercase  
+
+## Some useful things to know
+* Be careful what you wish for, the command line is very powerful, it will do exactly what you ask. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move). You can "echo" your commands to just print the command text without actually running the command.  
+* Prepend `man` to a command to read the manual for example `man rm`
+* You can use `ctrl + r` to search the command line history, and search for previously searched commands. Or type `history` to see the history`.
+* Beware of spaces when creating filenames, this is not generally good practice, if you must you can use the `\` escape character to add blank spaces in a file name. For example `touch space\ bars\ .txt`, if you run `touch space bars .txt` this will create three files `space`, `bars`, and `.txt`.
+* Have a look into using `tmux` or a similar terminal multiplexer for working with multiple terminals (see further reading living-in-the-terminal).
+* Use `htop` or `top` for monitoring the usage of your instance.
+* Have a go at learning the basics of `vim`, since it is ubiquitous on unix servers (see further reading living-in-the-terminal).
+* If you are not familiar with regular expressions, have a look at further readings (learning regular expressions the practical way).
 
 # Using the Command line for Data Science 
 If you have not yet installed the useful csvkit tool please follow the [link](https://csvkit.readthedocs.io/en/1.0.3/tutorial/1_getting_started.html#installing-csvkit) and install before doing these exercises.
@@ -199,3 +199,4 @@ To learn more about useful command line tools for data science and shell scripti
 * https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools 
 * https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/4_programming_best_practices/living-in-the-terminal
 * https://medium.com/@kadek/command-line-tricks-for-data-scientists-c98e0abe5da
+* https://hugogiraudel.com/2015/08/19/learning-regular-expressions-the-practical-way/
