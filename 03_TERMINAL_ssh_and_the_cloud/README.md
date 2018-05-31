@@ -57,11 +57,11 @@ SSH also supports password-based authentication that is encrypted by automatical
 
 ## Exercises
 
-Let's get data from several places and make a file called `answer_file` with all results (label them with the of the step). 
+Let's get data from several places and make a file called `answers.md` with all results (label them with the of the step). 
 
 This is something you should submit at the end of the session, to this repo to 
 
-`dssg-europe-syllabus/03_TERMINAL_ssh_and_the_cloud/exercises/[your_name_folder]`
+`dssg-europe-syllabus/03_TERMINAL_ssh_and_the_cloud/exercises/[your_username]/answers.md`
 
 (We will use this method in several sessions)
 
@@ -88,12 +88,12 @@ aws s3 ls
 and see 1 bucket there. Create a folder in your home like `~/my_bucket`, navigate to it, and try to run
 
 ```bash
-aws s3 sync . s3://dssg2018-general
+aws s3 cp s3://dssg2018-general/text_to_fellows.txt my_bucket/
 ```
 
 Careful with your aws zone, solve all issues until you can synchronize the bucket.
 
-Pick up the text in the file and add that to the `answer_file`. (Label 2.) 
+Pick up the text in the file and add that to the `answers.md`. (Label 2.) 
 
 ### psql CLI
 
@@ -111,7 +111,7 @@ psql -h dssgeu-rds.ckhljamecsmg.eu-west-2.rds.amazonaws.com -U [USER] -d dssgeu
 then add the the [password]
 
 
-4. Check the names of the databases using and add to the answer_file the names of the databases your seeing
+4. Check the names of the databases using and add to the `answers.md` the names of the databases your seeing
 
 `\l`
 
@@ -122,7 +122,7 @@ then add the the [password]
 \dn
 ``` 
 
-Pick the names of the first schema you're seeing and add to the `answer_file` with (label 3)
+Pick the names of the first schema you're seeing and add to the `answers.md` with (label 3)
 
 (by the way, leave with `\q`. Know more with http://www.postgresqltutorial.com/psql-commands/)
 
