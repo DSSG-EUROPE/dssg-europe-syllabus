@@ -76,8 +76,6 @@ Take a couple of minutes to Look at the data in the `Cleaned` Schema
 
 **4. Do you have an idea of what inspection generate each violation? That means, can you join the inspection to the corresponding violation for the day of "2018-05-25"?**
 
-**Let's start being careful with identation from now on**
-
 
 **5. Is there any violation without inspection defined? Of course not, right?**
 
