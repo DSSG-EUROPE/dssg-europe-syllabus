@@ -54,7 +54,7 @@ Now we can see all our changes until now in the log.
 
 
 ## Let's share our project on the internet!
-(Adding an existing project to GitHub using the command line)[https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/]
+[Adding an existing project to GitHub using the command line](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
 
 
 

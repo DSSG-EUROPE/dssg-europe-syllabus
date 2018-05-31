@@ -1,13 +1,15 @@
 # CSV to DB
 
-Just link directly to
+Follow the tutorial directly at this link:
 
 https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/csv-to-db
+
+Some important things to note:
 
 
 Some things important:
 
-- Use /mnt/Data to get the file instead of curl -O ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz
+- Get the `2016.csv` file on the instance at `/mnt/data`instead of `curl -O 
 - Copy it to a folder with your name in that directory and use it;
 - `jwalsh_schema` and `jwalsh_table` are example names: use your own name instead
 
