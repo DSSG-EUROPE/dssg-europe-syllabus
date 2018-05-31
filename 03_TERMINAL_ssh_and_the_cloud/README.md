@@ -119,9 +119,11 @@ psql -h dssgeu-rds.ckhljamecsmg.eu-west-2.rds.amazonaws.com -U [USER] -d dssgeu
 then add the the [password]
 
 
-4. Check the names of the databases using and add to the `answers.md` the names of the databases your seeing
+4. Check the names of the databases using 
 
 `\l`
+
+and add them to the `answers.md`.
 
 5. Pick the Database `dssgeu` and see the `raw` schema tables, using
 ``` 
@@ -136,7 +138,7 @@ Pick the names of the first schema you're seeing and add to the `answers.md` wit
 
 ### DBeaver
 
-5. create a DBeaver connection to that DB Server
+6. create a DBeaver connection to that DB Server
 
 We should now connect DBeaver to the Database - you can still do everything using 
 
@@ -146,7 +148,7 @@ We should now connect DBeaver to the Database - you can still do everything usin
 
 (or similar)
 
-6. Check if the same first schema added before is there
+7. Check if the same first schema added before is there
 
-7. Add a screenshot file named with your name, with the DBeaver showing the Databases to the Repo and push it.
+8. Add a screenshot file named with your name, with the DBeaver showing the Databases to the Repo and push it.
 
