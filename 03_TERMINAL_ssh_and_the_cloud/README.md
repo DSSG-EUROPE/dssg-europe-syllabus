@@ -57,53 +57,73 @@ SSH also supports password-based authentication that is encrypted by automatical
 
 ## Exercises
 
-Let's get data from several places and make a file called here as `answer_file` with all results (label them with the of the step). The answer_file should have your name;
+Let's get data from several places and make a file called `answer_file` with all results (label them with the of the step). 
 
-This is something you should submit at the end of the session, to the repo to 
+This is something you should submit at the end of the session, to this repo to 
 
 `dssg-europe-syllabus/03_TERMINAL_ssh_and_the_cloud/exercises/[your_name_folder]`
 
+(We will use this method in several sessions)
 
 ### Connection to S3
 
 1. Login to the AWS EC2 training instance:
 
-`ssh -i /path/key.pem username@training.dssg.io`
+`ssh -i /path/key.pem username@35.176.252.186`
 
 2. Get some data from a S3 server
 
+Be sure you can use S3 CLI:
+
+- Start by configuring your amazon CLI using this page: https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html
+
+- Don't forget to use the credentials given to you: Access key ID and Secret access key
+
+At the end you should be able to make 
+
+```bash
+aws s3 ls
 ```
 
+and see 1 bucket there. Create a folder in your home like `~/my_bucket`, navigate to it, and try to run
+
+```bash
+aws s3 sync . s3://dssg2018-general
 ```
 
+Careful with your aws zone, solve all issues until you can synchronize the bucket.
 
-write the first row to the exercise file
+Pick up the text in the file and add that to the `answer_file`. (Label 2.) 
+
 
 3. Login psql with your `username` and `pass`. We have set passwords to everyone to connect to training with the same user.
 
 **user:** dssg_training
 **password:** dssg
 
-psql -h dssgeu-rds.ckhljamecsmg.eu-west-2.rds.amazonaws.com -U [USER] -d dssgeu 
+in your training VM, 
 
-then [PASS]
+```
+psql -h dssgeu-rds.ckhljamecsmg.eu-west-2.rds.amazonaws.com -U [USER] -d dssgeu 
+````
+
+then add the the [password]
 
 
 4. Check the names of the databases using and add to the answer_file the names of the databases your seeing
 
-```
+`\l`
 
-\l
+5. Pick the Database `dssgeu` and see the `raw` schema tables, using
+``` 
+\c dssgeu
 
-```
-
-5. Check the Database `dssgeu` and see the `raw` schema tables: Pick the names of the tables you're seeing and add to the answer_file
+\dn
 ``` 
 
-``` 
+Pick the names of the first schema you're seeing and add to the `answer_file` with (label 3)
 
-
-
+(by the way, leave with `\q`. Know more with http://www.postgresqltutorial.com/psql-commands/)
 
 5. create a DBeaver connection to that DB Server
 
@@ -115,6 +135,7 @@ We should now connect DBeaver to the Database - you can still do everything usin
 
 (or similar)
 
-6. Check if the same Databases are there!
+6. Check if the same first schema added before is there
 
-7. Add a screenshot file named with your name, with the DBeaver showing the Databases to the Repo;
+7. Add a screenshot file named with your name, with the DBeaver showing the Databases to the Repo and push it.
+

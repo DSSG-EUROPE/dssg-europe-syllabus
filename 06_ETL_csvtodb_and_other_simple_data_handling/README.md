@@ -12,12 +12,12 @@ Some things important:
 - `jwalsh_schema` is an example: use your own name instead
 
 
-## `answer_file` Delivery  
+## Delivering `answer_file` 
 
 to push to this session `/exercises/[your_name_folder]` (don't forget your name):
 
 - Just before **Step 2:**, take a screenshot with your newly created schema visible in DBeaver
-- Send us a file with the first record data for the query 
+- Send us a file with the first record from the query 
 
 ```
   select * from [jwalsh]_schema.[jwalsh]_table limit 5;
