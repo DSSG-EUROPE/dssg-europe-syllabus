@@ -67,7 +67,7 @@ This is something you should submit at the end of the session, to this repo to
 
 ### Connection to S3
 
-S3 (_Simple Storage Service) is just one of the many types of storage services available on AWS (along with EBS, EFS, Glacier, etc.). We typically use S3 to store and share large data files which will later be imported to other AWS instances for processing. Here, we will copy a text file from S3 into an EC2 instance where can read it.
+S3 (_Simple Storage Service_) is just one of the many types of storage services available on AWS (along with EBS, EFS, Glacier, etc.). We typically use S3 to store and share large data files which will later be imported to other AWS instances for processing. Here, we will copy a text file from S3 into an EC2 instance where can read it.
 
 1. Login to the AWS EC2 training instance:
 
@@ -98,6 +98,8 @@ Careful with your aws zone, solve all issues until you can synchronize the bucke
 Pick up the text in the file and add that to the `answers.md`. (Label 2.) 
 
 ### psql CLI
+
+[psql](https://www.postgresql.org/docs/current/static/app-psql.html) is an interactive terminal for PostgreSQL. It allows you to make queries directly in the terminal, as well as inspect the database schema tables, manage user priviledges, etc.
 
 3. Login psql with your `username` and `pass`. We have set passwords to everyone to connect to training with the same user.
 
@@ -130,7 +132,9 @@ Pick the names of the first schema you're seeing and add to the `answers.md` wit
 
 ### DBeaver
 
-5. create a DBeaver connection to that DB Server
+[DBeaver](https://dbeaver.io/) is a SQL client and desktop application that supports many popular RDBMS flavoures, like PostgreSQL, MySQL, Cassandra, etc. You can use the GUI to configure a connection to your database, navigate through your schemas and tables, as well as run queries. It also supports SSH tunneling through a remote instance such as EC2.
+
+6. create a DBeaver connection to that DB Server
 
 We should now connect DBeaver to the Database - you can still do everything using 
 
@@ -140,7 +144,7 @@ We should now connect DBeaver to the Database - you can still do everything usin
 
 (or similar)
 
-6. Check if the same first schema added before is there
+7. Check if the same first schema added before is there
 
-7. Add a screenshot file named with your name, with the DBeaver showing the Databases to the Repo and push it.
+8. Add a screenshot file named with your name, with the DBeaver showing the Databases to the Repo and push it.
 
