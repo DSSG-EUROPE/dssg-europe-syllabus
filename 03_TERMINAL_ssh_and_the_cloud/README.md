@@ -88,7 +88,7 @@ aws s3 ls
 and see 1 bucket there. Create a folder in your home like `~/my_bucket`, navigate to it, and try to run
 
 ```bash
-aws s3 sync . s3://dssg2018-general
+aws s3 cp s3://dssg2018-general/text_to_fellows.txt my_bucket/
 ```
 
 Careful with your aws zone, solve all issues until you can synchronize the bucket.
