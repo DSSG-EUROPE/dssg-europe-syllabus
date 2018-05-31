@@ -196,8 +196,6 @@ Let's get a little more analytical
 
 Grouping in PostGres (and other Analytical databases) could be quite powerful
 
-
-
 ### GROUPING SETS
 
 Now you can have a group of [GROUP BY]'s in the same query (no exercise):
