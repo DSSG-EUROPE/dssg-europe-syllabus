@@ -55,6 +55,48 @@ Take a couple of minutes to Look at the data in the `Cleaned` Schema
 ```
 
 
+### SELECT, ORDER BY, LIMIT and OFFSET
+
+**1. Show me the last 10 violations (ORDER BY date)**
+
+
+### WHERE 
+
+
+**2. Count the violations with code 34 that happened already this year**
+
+
+
+### DISTINCT
+
+**3. How many code are there by the way? can you show them?**
+
+
+### INNER, LEFT, RIGHT JOIN, FULL OUTER JOIN
+
+**4. Do you have an idea of what inspection generate each violation? That means, can you join the inspection to the corresponding violation for the day of "2018-05-25"?**
+
+**Let's start being careful with identation from now on**
+
+
+**5. Is there any violation without inspection defined? Of course not, right?**
+
+
+### GROUP BY, HAVING
+
+Ok, lets aggregate rows that have the same characteristics. For instance, 
+
+**6. Get a list of the number of violations by code (since ever)**
+
+Now, let's filters **before** and **after** grouping:
+
+
+**7. Get a list of the number of violations by type (just during this year) for codes below 15**
+
+
+----------
+## ANSWERS
+
 
 ### SELECT, ORDER BY, LIMIT and OFFSET
 
