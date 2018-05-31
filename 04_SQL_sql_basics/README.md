@@ -208,9 +208,10 @@ Now you can have a group of [GROUP BY]'s in the same query (no exercise):
 SELECT 
   COUNT(*), code, date 
 FROM 
-  cleaned.violations group 
-BY GROUPING 
-  SETS((code), (date))
+  cleaned.violations  
+GROUP BY 
+  GROUPING 
+    SETS((code), (date))
 ```
 
 ### CUBE
