@@ -81,6 +81,14 @@ Be sure you can use S3 CLI:
 
 - Don't forget to use the credentials given to you: Access key ID and Secret access key
 
+- Use the following in the config file
+
+```
+[default]
+output = text
+region = eu-central-1
+```
+
 At the end you should be able to make 
 
 ```bash
@@ -115,9 +123,11 @@ psql -h dssgeu-rds.ckhljamecsmg.eu-west-2.rds.amazonaws.com -U [USER] -d dssgeu
 then add the the [password]
 
 
-4. Check the names of the databases using and add to the `answers.md` the names of the databases your seeing
+4. Check the names of the databases using 
 
 `\l`
+
+and add them to the `answers.md`.
 
 5. Pick the Database `dssgeu` and see the `raw` schema tables, using
 ``` 
