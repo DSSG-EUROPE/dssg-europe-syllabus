@@ -67,6 +67,8 @@ This is something you should submit at the end of the session, to this repo to
 
 ### Connection to S3
 
+S3 (_Simple Storage Service) is just one of the many types of storage services available on AWS (along with EBS, EFS, Glacier, etc.). We typically use S3 to store and share large data files which will later be imported to other AWS instances for processing. Here, we will copy a text file from S3 into an EC2 instance where can read it.
+
 1. Login to the AWS EC2 training instance:
 
 `ssh -i /path/key.pem username@35.176.252.186`
