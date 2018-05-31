@@ -79,6 +79,14 @@ Be sure you can use S3 CLI:
 
 - Don't forget to use the credentials given to you: Access key ID and Secret access key
 
+- Use the following in the config file
+
+```
+[default]
+output = text
+region = eu-central-1
+```
+
 At the end you should be able to make 
 
 ```bash
