@@ -95,6 +95,7 @@ Careful with your aws zone, solve all issues until you can synchronize the bucke
 
 Pick up the text in the file and add that to the `answer_file`. (Label 2.) 
 
+### psql CLI
 
 3. Login psql with your `username` and `pass`. We have set passwords to everyone to connect to training with the same user.
 
@@ -105,7 +106,7 @@ in your training VM,
 
 ```
 psql -h dssgeu-rds.ckhljamecsmg.eu-west-2.rds.amazonaws.com -U [USER] -d dssgeu 
-````
+```
 
 then add the the [password]
 
@@ -124,6 +125,8 @@ then add the the [password]
 Pick the names of the first schema you're seeing and add to the `answer_file` with (label 3)
 
 (by the way, leave with `\q`. Know more with http://www.postgresqltutorial.com/psql-commands/)
+
+### DBeaver
 
 5. create a DBeaver connection to that DB Server
 
