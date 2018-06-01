@@ -27,18 +27,15 @@ Namespaces are one honking great idea -- let's do more of those!
 ```
 
 ## Python for data science
-* [miniconda](https://conda.io/miniconda.html)
-    * Essential libraries:
-        * Data handling:
-            * [Pandas](https://pandas.pydata.org/) - _powerful Python data structures and data analysis toolkit_
-            * [Numpy](http://www.numpy.org/) - _N-dimensional array for numerical computation_
-        * Plotting:
-            * [Matplotlib](https://matplotlib.org/) - _2D Plotting library for Python_
-            * [Seaborn](https://seaborn.pydata.org/) - _Statistical graphics library for Python_
-            * [Bokeh](https://bokeh.pydata.org/en/latest/) - _Interactive web visualisation library_
-        * Machine learning:
-            * [scikit-learn](http://scikit-learn.org/stable/) - _Machine learning library for the Python_
-* [Conda environment cheat sheet](http://know.continuum.io/rs/387-XNW-688/images/conda-cheatsheet.pdf?mkt_tok=eyJpIjoiWkRJNU1UZzBOV0ptTnpsayIsInQiOiJ6K3VQQkhtSUMrcGxoSUwxd0IxTkxFWUxpa052UnVlak1FK1RMRm1kcWplN1pDdlZIbWZWUWFpTmtFTHFYK0gxRzRMb1c1K3ViZnBoa21yZjhzaUlUMzlxM1NpMGdRSHl1VlJTMHcyeWZvYz0ifQ%3D%3D)
+* [miniconda](https://conda.io/miniconda.html) - _a mini version of Anaconda that includes only conda and its dependencies._
+   * [Pandas](https://pandas.pydata.org/) - _powerful Python data structures and data analysis toolkit_
+   * [Numpy](http://www.numpy.org/) - _N-dimensional array for numerical computation_
+   * [Matplotlib](https://matplotlib.org/) - _2D Plotting library for Python_
+   * [Seaborn](https://seaborn.pydata.org/) - _Statistical graphics library for Python_
+   * [Bokeh](https://bokeh.pydata.org/en/latest/) - _Interactive web visualisation library_
+   * [scikit-learn](http://scikit-learn.org/stable/) - _Machine learning library for the Python_
+
+On your projects use miniconda and environments to manage dependenices. See the [conda environment cheat sheet](http://know.continuum.io/rs/387-XNW-688/images/conda-cheatsheet.pdf?mkt_tok=eyJpIjoiWkRJNU1UZzBOV0ptTnpsayIsInQiOiJ6K3VQQkhtSUMrcGxoSUwxd0IxTkxFWUxpa052UnVlak1FK1RMRm1kcWplN1pDdlZIbWZWUWFpTmtFTHFYK0gxRzRMb1c1K3ViZnBoa21yZjhzaUlUMzlxM1NpMGdRSHl1VlJTMHcyeWZvYz0ifQ%3D%3D).
 
 1. connect to remote: `ssh -i ~/path/to/pem.pem username@35.176.252.186`
 2. locally: `ssh -i ~/path/to/pem.pem -NfL 8888:localhost:8888 wgrimes@35.176.252.186`
