@@ -27,7 +27,7 @@ Namespaces are one honking great idea -- let's do more of those!
 ```
 
 ## Python for data science
-* [miniconda](https://conda.io/miniconda.html) - _a mini version of Anaconda that includes only conda and its dependencies._
+* [Miniconda](https://conda.io/miniconda.html) - _a mini version of Anaconda that includes only conda and its dependencies._
    * [Pandas](https://pandas.pydata.org/) - _powerful Python data structures and data analysis toolkit_
    * [Numpy](http://www.numpy.org/) - _N-dimensional array for numerical computation_
    * [Matplotlib](https://matplotlib.org/) - _2D Plotting library for Python_
