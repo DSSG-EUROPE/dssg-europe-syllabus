@@ -1,0 +1,6 @@
+station	date	value_type	value	measurement_flag	quality_flag	source_flag	time
+US1MNCV0008	20160101	PRCP	0	T		N	
+US1MNCV0008	20160101	SNOW	0	T		N	
+US1MNCV0008	20160101	SNWD	127			N	
+CA1AB000023	20160101	PRCP	0			N	
+CA1AB000023	20160101	SNOW	0			N	
