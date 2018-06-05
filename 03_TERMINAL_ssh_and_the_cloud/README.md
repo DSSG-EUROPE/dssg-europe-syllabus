@@ -75,18 +75,15 @@ S3 (_Simple Storage Service_) is just one of the many types of storage services 
 
 2. Get some data from a S3 server
 
-Be sure you can use S3 CLI:
+The [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) allows us interact with our instances from the terminal.
 
-- Start by configuring your amazon CLI using this page: https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html
-
-- Don't forget to use the credentials given to you: Access key ID and Secret access key
-
-- Use the following in the config file
+First, configure your AWS CLI using your credentials (Access Key ID and Secret Access Key)
 
 ```
-[default]
-output = text
+Access Key ID = ***
+Secret Access Key ID = ***
 region = eu-central-1
+output = text
 ```
 
 At the end you should be able to make 
