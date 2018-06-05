@@ -22,8 +22,7 @@ Ask us anything about technical stuff. We will try our best to help you address 
 * pSQL (PostgreSQL command line interface)
 * IDE / text editor (Atom, Sublime, Vim, VS studio, PyCharm, Spyder, ...)
 * [DBeaver](http://dbeaver.jkiss.org/)
-* [Python 3.6](https://www.Python.org/downloads/)
-* [miniconda](https://conda.io/miniconda.htML) or [pip/virtualenv](https://pip.pypa.io/en/stable/installing/)
+* [miniconda](https://conda.io/miniconda.htML) or [pip/virtualenv](https://pip.pypa.io/en/stable/installing/) with [Python 3.6](https://www.Python.org/downloads/)
 * Python Packages
     * pandas/numpy/scipy
     * [matplotlib](https://matplotlib.org/)
