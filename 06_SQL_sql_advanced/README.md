@@ -5,7 +5,7 @@ As in previous sessions create an answers file as your name in the `./exercises/
 For each "HandsOn" section in the notebook tutorial, provide the relevant query in your answers file. In addition for any queries in the notebook that do not execute, try to debug to create a working query and **also** provide this in your answers file.
 
 ### Warnings:
-- In the tutorial do not follow the `Test your connection` section but use the dBeaver connection we setup previously [discussed](https://github.com/DSSG-EUROPE/dssg-europe-syllabus/tree/master/03_TERMINAL_ssh_and_the_cloud).
+- In the tutorial do not follow the `Test your connection` section but use the dBeaver connection we setup [previously](https://github.com/DSSG-EUROPE/dssg-europe-syllabus/tree/master/03_TERMINAL_ssh_and_the_cloud).
 - Queries have a couple of bugs... can you find them?
 - Take your time with this advanced session to fully understand what you are doing...
 j
