@@ -11,7 +11,7 @@ For each "HandsOn" section in the notebook tutorial, provide the relevant query 
 j
 ### Tutorial:
 
-1. https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/2_data_exploration_and_analysis/advanced_sql/advanced_sql.org
+1. [Advanced SQL notebook](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/2_data_exploration_and_analysis/advanced_sql/advanced_sql.org)
 
 
 
