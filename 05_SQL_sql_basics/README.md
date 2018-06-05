@@ -44,33 +44,33 @@ Take five minutes to get familiar with the data in the `Cleaned` Schema, explore
 
 ### SELECT, ORDER BY, LIMIT and OFFSET
 
-**1. Select the last 10 violations and order by date**
+1. Select the last 10 violations and order by date
 
 
 ### WHERE 
 
-**2. Count the violations with code 34 that have happened this year**
+2. Count the violations with code 34 that have happened this year
 
 
 ### DISTINCT
 
-**3. How many unique violation codes are there?**
+3. How many unique violation codes are there?
 
 
 ### INNER, LEFT, RIGHT JOIN, FULL OUTER JOIN
 
-**4. Can you join the inspection to the corresponding violation for the day of "2018-05-25"?**
+4. Can you join the inspection to the corresponding violation for the day of "2018-05-25"?
 
-**5. Is there any violation without a record of inspection?**
+5. Is there any violation without a record of inspection?
 
 
 ### GROUP BY, HAVING
 
 Ok, lets aggregate rows that have the same characteristics. For instance, 
 
-**6. Get a list of the number of violations by code.
+6. Get a list of the number of violations by code.
 
-**7. Get a list of the number of violations by type, for this year, and for codes below 15**
+7. Get a list of the number of violations by type, for this year, and for codes below 15
 
 ----
 Answers will be available...
