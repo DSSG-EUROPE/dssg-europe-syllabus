@@ -137,13 +137,51 @@ pd.read_csv('./data/chicago_past_year_crimes.csv', header=None, nrows=5)
 pd.to_csv('myDataFrame.csv')
 ```
 
-**Read from SQL database** - read and write to SQL Query or Database Table
+**Information on Series/DataFrame** 
+Basic Information
 ```
-from sqlalchemy import create_engine
-engine = create_engine('sqlite:///:memory:')
-pd.read_sql(SELECT * FROM my_table;, engine)
-pd.read_sql_table('my_table', engine)
-pd.read_sql_query(SELECT * FROM my_table;', engine)
+df.shape
+```
+Describe index
+```
+df.index
+```
+Describe DataFrame columns
+```
+df.columns
+```
+Info on DataFrame
+```
+df.info()
+```
+Number of non-NA values
+```
+df.count()
+```
+Sum of values
+```
+df.sum()
+```
+Cumulative sum of values
+```
+df.cumsum()
+```
+Minimum/Maximum values
+```
+df.min()
+df.max()
+```
+Summary statistics
+```
+df.describe()
+```
+Mean of values
+```
+df.mean()
+```
+Median of values
+```
+df.median()
 ```
 
 #### Data Selection:
@@ -207,52 +245,6 @@ df.sort_values(by='Country')
 Assign ranks to entries
 ```
 df.rank()
-```
-
-**Information on Series/DataFrame** 
-Basic Information
-```
-df.shape
-```
-Describe index
-```
-df.index
-```
-Describe DataFrame columns
-```
-df.columns
-```
-Info on DataFrame
-```
-df.info()
-```
-Number of non-NA values
-```
-df.count()
-```
-Sum of values
-```
-df.sum()
-```
-Cumulative sum of values
-```
-df.cumsum()
-```
-Minimum/Maximum values
-```
-df.min()/df.max()
-```
-Summary statistics
-```
-df.describe()
-```
-Mean of values
-```
-df.mean()
-```
-Median of values
-```
-df.median()
 ```
 
 ## 6. Tutorial
