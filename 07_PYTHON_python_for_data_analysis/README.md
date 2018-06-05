@@ -83,8 +83,8 @@ Once you start coding, it will be important to maintain a shared list of Python 
 ## 4. How to connect Jupyter notebook to a remote instance
 This tutorial requires the use of Jupyter notebooks to document your work. We will run Jupyter on the instance (remotely), this requires port forwarding  as follows:
 
-1. Connect to the remote: `ssh -i ~/path/to/pem.pem username@35.176.252.186`
-2. Run the following locally: `ssh -i ~/path/to/pem.pem -NfL 8888:localhost:8888 wgrimes@35.176.252.186`. 
+1. Connect to the remote: `ssh -i <~/path/to/pem.pem> <username>@<ip>`
+2. Run the following locally: `ssh -i <~/path/to/pem.pem> -NfL 8888:localhost:8888 <username>@<ip>`. 
 This sets up an ssh tunnel between a port on our machine and the port our Jupyter session is using on the remote server. For those not familiar with ssh tunneling, we’ve just created a secure, encrypted connection between port 8888 on our local machine and port 8888 on our remote server. 
 
 > The `-N` flag tells ssh we won’t be running any remote processes using the connection. This is useful for situations like this where all we want to do is port forwarding.
