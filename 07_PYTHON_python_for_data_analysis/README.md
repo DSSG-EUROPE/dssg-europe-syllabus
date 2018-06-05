@@ -95,7 +95,7 @@ This sets up an ssh tunnel between a port on our machine and the port our Jupyte
 
 
 ## 5. Pandas Cookbook
-<img src="https://media.giphy.com/media/EPcvhM28ER9XW/giphy.gif" width="40" />
+<img src="https://media.giphy.com/media/EPcvhM28ER9XW/giphy.gif" width="40%" />
 
 ## 6. Tutorial
 Please complete the following exercises:
