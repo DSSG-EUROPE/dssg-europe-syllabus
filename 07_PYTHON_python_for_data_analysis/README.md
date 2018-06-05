@@ -12,9 +12,9 @@ Python is a popular choice for data science since it is powerful, fast, plays we
 
 Concurrently managing and maintaining Python environments is essential to your teams success. There are several approaches to do this namely using `pip` and virtual environments  or `conda`. 
 
-* Conda is an open source, cross-platform, language-agnostic package manager and environment management system that installs, runs, and updates packages and their dependencies.
-* Anaconda uses Python and the conda python package management system bundled with ~ 150 scientific Python libraries. 
-* Miniconda uses the conda package management system, without bundling in the Python libraries. 
+* **Conda** is an open source, cross-platform, language-agnostic package manager and environment management system that installs, runs, and updates packages and their dependencies.
+* **Anaconda** uses Python and the conda python package management system bundled with ~ 150 scientific Python libraries. 
+* **Miniconda** uses the conda package management system, without bundling in the Python libraries. 
 
 For your projects we recommend using Miniconda, and manually installing the required libraries within environments. These environments can be used to collaborate on teams, and keep for example different environments for development and production. This approach using Miniconda saves on disk space and reduces the risk of package conflicts, and redundant packages.
 
@@ -37,12 +37,12 @@ source ~/.bashrc
 ## 3. Package management with Conda
 Now to use virtual environments in Conda. Create yourself a virtual environment where you can install your own Python packages (change <venv> to your virtual environment name of choice - I suggest something short, like your initials, or your project initials):
 
-**Create an environment**
+**Create a new environment**
 ```
 conda create -n <venv>
 ```
 
-**Activate an environment**
+**Activate an existing environment**
 ```
 source activate <venv>
 ```
@@ -57,11 +57,18 @@ source activate <venv>
 conda install pandas
 ```
 
-**See what  packages are installed in the environment**
+**Check what  packages are installed in the environment**
 ```
-conda list -e
+conda list
 ```
-_Please only install packages inside your own environment._ This will ensure your packages don't clash with your other team members'.
+
+**For help using conda and it's functions look here**
+```
+conda help
+```
+
+
+**Please only install packages inside your own environment.** This will ensure your packages don't clash with your other team members'.
 
 Once you start coding, it will be important to maintain a shared list of Python packages required for your project. Here's an example from last year: https://github.com/DSSG-EUROPE/jdms/blob/master/requirements.txt With this file, someone else (a new team member, a project partner, a future repo contributor) will be able to recreate a conda environment on their machine with all the correct package versions to run your code, and avoid clashing with other packages they have already installed on their machine.
 
@@ -88,6 +95,7 @@ This sets up an ssh tunnel between a port on our machine and the port our Jupyte
 
 
 ## 5. Pandas Cookbook
+<img src="https://media.giphy.com/media/EPcvhM28ER9XW/giphy.gif" width="40%" />
 
 ## 6. Tutorial
 Please complete the following exercises:
