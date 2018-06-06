@@ -21,18 +21,38 @@ select
         v.inspection,
         v.license_num,
         v.date,
-        extract(year from v.date)::int,  -- crq: some change here
+        extract(year from v.date)::int,  -- crq: changed
         json_agg(
-                 json_build_object('code',v.code, -- crq: some change here
-                                   'description', v.description,  -- crq: some change here
-                                   'comment',v.comment)  -- crq: some change here
+                 json_build_object('code',v.code, -- crq: changed
+                                   'description', v.description,  -- crq: changed
+                                   'comment',v.comment)  -- crq: changed
         ) as violations
 from cleaned.violations as v
 where inspection  = '2078651'
 group by v.inspection, v.license_num, v.date; 
 -- We need a group by since we are using an aggregator function
 
--- ## Hands-on
+-- ## Hands-on: Estimated time: 1 minute Manipulate the previous query statement 
+--              and try to join it with the inspections (You should get only one row)
+
+with new_table as (
+    select
+            v.inspection,
+            v.license_num,
+            v.date,
+            extract(year from v.date)::int,  -- crq: changed
+            json_agg(
+                     json_build_object('code',v.code, -- crq: changed
+                                       'description', v.description,  -- crq: changed
+                                       'comment',v.comment)  -- crq: changed
+            ) as violations
+    from cleaned.violations as v
+    where inspection  = '2078651'
+    group by v.inspection, v.license_num, v.date
+)
+select * from (cleaned.inspections right join new_table on cleaned.inspections.inspection = new_table.inspection)
+-- crq: `right join` outputs a subset of the table on the right, i.e. `new_table`
+
 
 -- # Cleaning your code and (maybe) gaining a little speed: CTEs
 with new_violations as (
@@ -40,7 +60,7 @@ with new_violations as (
         v.inspection,
         v.license_num,
         v.date,
-        extract(year from v.date)::int,  -- crq: some change here
+        extract(year from v.date)::int,  -- crq: changed
         json_agg(
                  json_build_object('code',v.code, -- crq: changed
                                    'description', v.description, -- crq: changed
@@ -56,7 +76,65 @@ left join new_violations as v -- Here we are using the "common table"
 using (inspection); -- crq: this is the key used for joining
 -- crq: match the different table / query names above 
 
+
+
+-- crq: multiple with clauses below. Here we have two with clauses. 
+-- crq: a good exercise is to match the different table / query names below
+with new_violations as (
+    select
+        v.inspection as inspection_tmp,
+        v.license_num,
+        v.date,
+        extract(year from v.date)::int,  -- crq: changed
+        json_agg(
+                 json_build_object('code',v.code, -- crq: changed
+                                   'description', v.description, -- crq: changed
+                                   'comment',v.comment)  -- crq: changed
+        ) as sub_violations
+    from cleaned.violations as v
+    where inspection  = '2078651'
+    group by v.inspection, v.license_num, v.date
+),
+new_table as (
+    select
+            v.inspection as inspection_tmp,
+            v.license_num,
+            v.date,
+            extract(year from v.date)::int,  -- crq: changed
+            json_agg(
+                     json_build_object('code',v.code, -- crq: changed
+                                       'description', v.description,  -- crq: changed
+                                       'comment',v.comment)  -- crq: changed
+            ) as violations
+    from cleaned.violations as v
+    where inspection  = '2078651'
+    group by v.inspection, v.license_num, v.date
+)
+select i.*, v.sub_violations
+from new_table as i
+left join new_violations as v -- Here we are using the "common table"
+using (inspection_tmp); -- crq: this is the key used for joining
+-- crq: join. We can join using `on table_a.keyword_a = table_b.keyword_b`. 
+-- If keyword_a and keyword_b are the same, say, both are `someWord`, we can just say `using someWord`. 
+
+
 -- # Querying unstructured data
+
+select
+    -- event_id as inspection, -- crq: changed
+    jsonb_array_elements(violations) as violations -- Each entry in the violations column is a json file
+from semantic.inspections
+where event_id = '104246'
+limit 2;
+
+select
+    event_id as inspection, -- crq: changed
+    jsonb_array_elements(violations) as violations -- Each entry in the violations column is a json file
+    -- e.g. {"code": "30", "comment": "All food not stored in the original container shall be stored in properly labeled containers. CORRECTED ON 1-14-10", "severity": "minor", "description": "FOOD IN ORIGINAL CONTAINER, PROPERLY LABELED: CUSTOMER ADVISORY POSTED AS NEEDED"}
+from semantic.inspections
+where event_id = '104246';
+
+
 with new_violations as (
      select
         event_id as inspection, -- crq: changed
@@ -64,13 +142,48 @@ with new_violations as (
      from semantic.inspections
      where event_id = '104246' -- crq: ? Can I call this `inspection` also? 
 )
-select inspection,
+select inspection as inspection_tmp,
+       violations ->> 'code' as violation_code_tmp, -- We want the value of the key 'code'
+       violations ->> 'severity' as severity_tmp, -- crq: get the `severity` field out of the json file
+       count(*)
+from new_violations
+group by inspection_tmp, violation_code_tmp, severity_tmp; 
+
+-- crq: play with `group by`
+
+with new_violations as (
+     select
+        event_id as inspection, -- crq: changed
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from semantic.inspections
+     where event_id = '104246' -- crq: ? Can I call this `inspection` also? 
+)
+select inspection as inspection_tmp,
+       violations ->> 'code' as violation_code_tmp, -- We want the value of the key 'code'
+       violations ->> 'severity' as severity_tmp -- crq: get the `severity` field out of the json file
+from new_violations
+group by violation_code_tmp, inspection_tmp, severity_tmp; 
+
+
+with new_violations as (
+     select
+        event_id as inspection, -- crq: changed
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from semantic.inspections
+     where event_id = '104246' -- crq: ? Can I call this `inspection` also? 
+)
+select inspection as inspection_tmp,
        violations ->> 'code' as violation_code, -- We want the value of the key 'code'
        count(*)
 from new_violations
-group by inspection, violation_code;  -- crq: changed 
--- crq: ? these must be here, else errors happen. Why?
--- crq: ? Why do we still have `group by`? I already fixed to have `event_id` = 104246
+group by inspection_tmp, violation_code;  -- crq: changed 
+-- crq: ? todo these must be here, else errors happen. Why?
+-- crq: ? todo Why do we still have `group by`? I already fixed to have `event_id` = 104246
+
+
+
+
+
 
 -- ## Hands-on
 
@@ -125,9 +238,12 @@ select v.date from (semantic.inspections as v left join raw.inspections on v.eve
 
 -- crq: this does NOT run because of the `useless_name`. Why? 
 -- crq: ? todo error: `There is an entry for table … but it cannot be referenced from this part of the query`. Ref:https://stackoverflow.com/questions/6347897/mixing-explicit-and-implicit-joins-fails-with-there-is-an-entry-for-table-b 
-select v.date from (semantic.inspections as v left join raw.inspections on v.event_id::int4 = raw.inspections.inspection::int4) useless_name; -- crq: throws error
+select my_date from (select v.date as my_date, * from semantic.inspections as v left join raw.inspections on v.event_id::int4 = raw.inspections.inspection::int4) as useless_name; -- crq: throws error
+select v.date from (semantic.inspections as v left join raw.inspections on v.event_id::int4 = raw.inspections.inspection::int4); -- crq: throws error
+
 
 select city from (semantic.inspections as table_a left join raw.inspections on table_a.event_id::int4 = raw.inspections.inspection::int4)
+
 where extract(year from table_a.date)::int4 = 2017;
 
 select
@@ -311,4 +427,3 @@ where facility_type = 'restaurant' and risk = 'high';
 
 -- todo 
 -- # Appendix
--- ## Creating the database 
