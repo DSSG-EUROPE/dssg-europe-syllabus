@@ -134,7 +134,7 @@ Pandas is very useful for handing data in dataframes/tables in Python, and for d
 
 Be warned though once you start working with larger datasets you will find Pandas is limited by the memory of the machine on which you are working.  When dealing with larger data sets for example tens of gigabytes it will be necessary to use databases and SQL.  
 
-#### Data structures:
+### Data structures:
 **Series:**
 A one-dimensional labelled array capable of holding any data type
 ```
@@ -151,7 +151,7 @@ data = {'Country': ['Belgium',  'India',  'Brazil'],
 df = pd.DataFrame(data, columns=['Country',  'Capital',  'Population'])
 ```
 
-#### input/output:
+### input/output:
 **Read csv:**
 Read in a csv file
 ```
@@ -163,117 +163,100 @@ Write a csv file
 df.to_csv('myDataFrame.csv')
 ```
 
-**Information on Series/DataFrame:** 
-Basic Information
+### Information on Series/DataFrame:
+**Basic Information**
 ```
 df.shape
 ```
-Describe index
+**Describe index**
 ```
 df.index
 ```
-Describe DataFrame columns
+**Describe DataFrame columns**
 ```
 df.columns
 ```
-Info on DataFrame
+**Info on DataFrame**
 ```
 df.info()
 ```
-Number of non-NA values
+**Number of non-NA values**
 ```
 df.count()
 ```
-Sum of values
+**Sum of values**
 ```
 df.sum()
 ```
-Cumulative sum of values
+**Cumulative sum of values**
 ```
 df.cumsum()
 ```
-Minimum/Maximum values
+**Minimum/Maximum values**
 ```
 df.min()
 df.max()
 ```
-Summary statistics
+**Summary statistics**
 ```
 df.describe()
 ```
-Mean of values
+**Mean of values**
 ```
 df.mean()
 ```
-Median of values
+**Median of values**
 ```
 df.median()
 ```
 
 #### Data Selection:
-**Subset of a DataFrame** - 
-```
-df[1:]
-```
-
-**By Position**
-Select single value by row and and column
-```
-df.iloc([0], [0])
-```
-
-**By Label**
-Select single value by row and column labels
-```
-df.loc([0],  ['Country'])
-```
-
-**By Label/Position:**
-Select single row of subset of rows
+**Select single row of subset of rows**
 ```
 df.ix[2]
 ```
 
 **Boolean Indexing:**
-Series s where value is not >1
+**Series s where value is not >1**
 ```
 s[~(s > 1)]
 ```
-where value is <-1 or >2
+**where value is <-1 or >2**
 ```
 s[(s < -1) | (s > 2)]
 ```
-Use filter to adjust DataFrame
+**Use filter to adjust DataFrame**
 ```
 df[df['Population']>1200000000]
 ```
 
 **Setting:**
-set index a of Series s to 6
+**set index a of Series s to 6**
 ```
 s['a'] = 6
 ```
 
-#### Dropping:
-Drop values from rows (axis=0)
+### Dropping:
+**Drop values from rows (axis=0)**
 ```
 s.drop(['a',  'c'])
 ```
 
-Drop values from columns(axis=1)
+**Drop values from columns(axis=1)**
 ```
 df.drop('Country', axis=1) 
 ```
 
-**Sort and rank** - sort by labels along an axis
+### Sort and rank:
+**Sort by labels along an axis**
 ```
 df.sort_index()
 ```
-Sort by the values along an axis
+**Sort by the values along an axis**
 ```
 df.sort_values(by='Country') 
 ```
-Assign ranks to entries
+**Assign ranks to entries**
 ```
 df.rank()
 ```
@@ -281,5 +264,7 @@ df.rank()
 ## 6. Tutorial
 Please complete the following exercises:
 
-1. Create a new miniconda environment, source it, and install 
-1. [Notebook: working_with_data_in_python](./working_with_data_in_python.ipynb)
+1. Create a new miniconda environment, source it, and install pandas and libraries necessary to run the notebook in step 2. Use `conda install` to install the relevant libraries
+2. [Notebook: working_with_data_in_python](./working_with_data_in_python.ipynb)
+3. Deactivate your conda environment and remove it
+
