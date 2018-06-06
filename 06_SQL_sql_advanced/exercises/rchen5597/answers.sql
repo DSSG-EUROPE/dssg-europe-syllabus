@@ -1,4 +1,8 @@
 -- Advanced SQL
+
+-- References:
+-- https://stackoverflow.com/questions/8660203/how-to-check-for-is-not-null-and-is-not-empty-string-in-sql-server
+
 -- # Before we start
 -- ## The notes
 -- ## Test your connection
