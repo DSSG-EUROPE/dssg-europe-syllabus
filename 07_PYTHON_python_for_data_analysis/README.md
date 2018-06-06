@@ -125,22 +125,24 @@ import pandas as pd
 ```
 
 <p align="center">
-    <img src="https://media.giphy.com/media/EPcvhM28ER9XW/giphy.gif" width="40%" />
+    <img src="https://media.giphy.com/media/EPcvhM28ER9XW/giphy.gif" width="55%" />
 </p>
 
-As with other libraries, `import pandas` and for convenience/convention reference it as `pd`, as follows:
+As with other libraries, `import pandas as pd` and for convenience/convention reference it as `pd`, as follows:
 
 Pandas is very useful for handing data in dataframes/tables in Python, and for dealing with `csv` or `xls` files, and doing data manipulation.
 
 Be warned though once you start working with larger datasets you will find Pandas is limited by the memory of the machine on which you are working.  When dealing with larger data sets for example tens of gigabytes it will be necessary to use databases and SQL.  
 
 #### Data structures:
-**Series** - a one-dimensional labelled array capable of holding any data type
+**Series:**
+A one-dimensional labelled array capable of holding any data type
 ```
 s = pd.Series([3, -5, 7, 4],  index=['a',  'b',  'c',  'd'])
 ```
 
-**DataFrame** - a two-dimensional labelled data structure with columns of potentially different types
+**DataFrame:**
+A two-dimensional labelled data structure with columns of potentially different types
 ```
 data = {'Country': ['Belgium',  'India',  'Brazil'],
 'Capital': ['Brussels',  'New Delhi',  'Brasilia'],
@@ -149,22 +151,19 @@ data = {'Country': ['Belgium',  'India',  'Brazil'],
 df = pd.DataFrame(data, columns=['Country',  'Capital',  'Population'])
 ```
 
-#### Getting help:
-```
-help(pd.Series.loc)
-```
-
 #### input/output:
-**Read csv** - read in a csv file
+**Read csv:**
+Read in a csv file
 ```
 pd.read_csv('./data/chicago_past_year_crimes.csv', header=None, nrows=5)
 ```
-**Write a dataframe to file** - write a csv file
+**Write a dataframe to file:**
+Write a csv file
 ```
-pd.to_csv('myDataFrame.csv')
+df.to_csv('myDataFrame.csv')
 ```
 
-**Information on Series/DataFrame** 
+**Information on Series/DataFrame:** 
 Basic Information
 ```
 df.shape
@@ -217,22 +216,26 @@ df.median()
 df[1:]
 ```
 
-**By Position** - select single value by row and and column
+**By Position**
+Select single value by row and and column
 ```
 df.iloc([0], [0])
 ```
 
-**By Label** - select single value by row and column labels
+**By Label**
+Select single value by row and column labels
 ```
 df.loc([0],  ['Country'])
 ```
 
-**By Label/Position** - select single row of subset of rows
+**By Label/Position:**
+Select single row of subset of rows
 ```
 df.ix[2]
 ```
 
-**Boolean Indexing:** - Series s where value is not >1
+**Boolean Indexing:**
+Series s where value is not >1
 ```
 s[~(s > 1)]
 ```
@@ -245,7 +248,8 @@ Use filter to adjust DataFrame
 df[df['Population']>1200000000]
 ```
 
-**Setting** - set index a of Series s to 6
+**Setting:**
+set index a of Series s to 6
 ```
 s['a'] = 6
 ```
@@ -277,4 +281,5 @@ df.rank()
 ## 6. Tutorial
 Please complete the following exercises:
 
+1. Create a new miniconda environment, source it, and install 
 1. [Notebook: working_with_data_in_python](./working_with_data_in_python.ipynb)
