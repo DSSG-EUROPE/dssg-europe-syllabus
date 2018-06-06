@@ -22,11 +22,15 @@ On your EC2 instances you will have Miniconda installed with Python 3.6 at the `
 
 The `PATH` variable defines where the operating systems searches for executables. The path is stored in an environment variable, which is a named string maintained by the operating system. This variable contains information available to the command shell and other programs. So in the following commands we are telling the OS whereto find the Python files in the `/opt/` directories.
 
-1. SSH into your EC2 server `ssh -i </path/to/pem>.pem <username>@<ip_address>`
+1. SSH into your EC2 server
+```
+ssh -i </path/to/pem>.pem <username>@<ip_address>
+```
 
 2. Append the Miniconda path to your `~/.bashrc` file, and source to execute. 
 ```
 echo "export PATH=\"/opt/miniconda3/bin:\$PATH\"" >> ~/.bashrc;
+
 source ~/.bashrc
 ```
 
