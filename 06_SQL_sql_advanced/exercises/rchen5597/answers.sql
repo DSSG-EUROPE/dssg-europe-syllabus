@@ -151,6 +151,15 @@ group by inspection_tmp, violation_code_tmp, severity_tmp;
 
 -- crq: play with `group by`
 
+select
+    event_id as inspection, -- crq: changed
+    jsonb_array_elements(violations) as violations -- This returns several rows
+from semantic.inspections
+where event_id = '104246'; -- crq: ? Can I call this `inspection` also?
+     
+-- crq: ? todo, not sure why the first chunk below works but the second doesn't. Differ in last lime.
+-- crq: ? error message: Must appear in the GROUP BY clause or be used in an aggregate function
+-- crq: chunk one. Works
 with new_violations as (
      select
         event_id as inspection, -- crq: changed
@@ -163,6 +172,22 @@ select inspection as inspection_tmp,
        violations ->> 'severity' as severity_tmp -- crq: get the `severity` field out of the json file
 from new_violations
 group by violation_code_tmp, inspection_tmp, severity_tmp; 
+
+-- crq: chunk two. Does not work.
+with new_violations as (
+     select
+        event_id as inspection, -- crq: changed
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from semantic.inspections
+     where event_id = '104246' -- crq: ? Can I call this `inspection` also? 
+)
+select inspection as inspection_tmp,
+       violations ->> 'code' as violation_code_tmp, -- We want the value of the key 'code'
+       violations ->> 'severity' as severity_tmp -- crq: get the `severity` field out of the json file
+from new_violations
+group by violation_code_tmp, severity_tmp; 
+
+
 
 
 with new_violations as (
@@ -181,18 +206,70 @@ group by inspection_tmp, violation_code;  -- crq: changed
 -- crq: ? todo Why do we still have `group by`? I already fixed to have `event_id` = 104246
 
 
+-- ## Hands-on: Estimated time: 2 minutes Modify this query to get the facility (using license_num) 
+--             in which the inspectors found the biggest number of violation code 40.
 
 
 
+with new_table as (
+    with new_violations as (
+     select
+         license_num,
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from (semantic.inspections inner join semantic.entities using (entity_id))
+    )
+    select 
+        license_num,
+        violations ->> 'code' as violation_code_tmp  
+    from new_violations
+    where violations ->> 'code'  is not null
+)
+select license_num, count(*) from new_table where violation_code_tmp = '40' group by license_num order by count(*) desc limit 3;
 
--- ## Hands-on
+
+-- crq: see what violation codes there are 
+with new_table as (
+    with new_violations as (
+     select
+         license_num,
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from (semantic.inspections inner join semantic.entities using (entity_id))
+    )
+    select 
+        license_num,
+        violations ->> 'code' as violation_code_tmp  
+    from new_violations
+    where violations ->> 'code'  is not null
+)
+select distinct violation_code_tmp from new_table order by violation_code_tmp asc;
+
+-- hands on solution: get the top three facilities (identified by facility_num) with the most code-40 violation
+with new_table as (
+    with new_violations as (
+     select
+         license_num,
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from (semantic.inspections inner join semantic.entities using (entity_id))
+    )
+    select 
+        license_num,
+        violations ->> 'code' as violation_code_tmp  
+    from new_violations
+    where violations ->> 'code'  is not null and violations ->> 'code'  <> ''  -- crq: useful, check if entry is not empty space.
+)
+select license_num, count(*) from new_table where violation_code_tmp::int4 = 40 group by license_num order by count(*) desc limit 3;
+
 
 -- # “Datawarehousing”
 
 -- ## Hands-on
+--         Generate data for a BI dashboard, that shows all total number of inspections, 
+--      and their results, per city, facility type, month, year including totals and subtotals
+-- crq: ? todo. que? no entiendo.
 
 -- ## Datawarehousing functions
 -- This doesn't give you the subtotals and totals
+
 select
         date_part('month', date)::int4 as mm,
         date_part('year', date)::int4 as yy,
@@ -208,6 +285,50 @@ group by date_part('month', date), yy, ff, rr; -- crq: ? Why do I have to group 
 --group by CUBE (month, year, city, facility_type, results)
 
 -- ## Hands-on
+
+-- crq: ? todo. Can spend some more time here. 
+--         The three code chunks below work, but what do they do? They differ in the group by clauses. 
+--         Compare the output and find the differences.
+
+select
+        date_part('month', date)::int4 as mm,
+        date_part('year', date)::int4 as yy,
+        -- city, -- crq: ? how to map zipcode to city?
+        facility_type as ff,
+        result as rr,
+        count(*) as number_of_inspections
+from semantic.inspections
+where date_part('year', date) = 2017 and date_part('month', date) = 1
+group by GROUPING SETS (mm, yy, ff, rr, ())
+
+
+
+select
+        date_part('month', date)::int4 as mm,
+        date_part('year', date)::int4 as yy,
+        -- city, -- crq: ? how to map zipcode to city?
+        facility_type as ff,
+        result as rr,
+        count(*) as number_of_inspections
+from semantic.inspections
+where date_part('year', date) = 2017 and date_part('month', date) = 1
+group by ROLLUP (mm, yy, ff, rr)
+
+
+
+select
+        date_part('month', date)::int4 as mm,
+        date_part('year', date)::int4 as yy,
+        -- city, -- crq: ? how to map zipcode to city?
+        facility_type as ff,
+        result as rr,
+        count(*) as number_of_inspections
+from semantic.inspections
+where date_part('year', date) = 2017 and date_part('month', date) = 1
+group by CUBE (mm, yy, ff, rr)
+
+-- crq: todo. Continue from here. 
+
 
 -- # Analytical Questions: Looking through the window
 
@@ -427,3 +548,4 @@ where facility_type = 'restaurant' and risk = 'high';
 
 -- todo 
 -- # Appendix
+-- ## Creating the database 
