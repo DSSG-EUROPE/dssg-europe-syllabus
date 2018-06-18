@@ -77,7 +77,7 @@ S3 (_Simple Storage Service_) is just one of the many types of storage services 
 
 The [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) allows us interact with our instances from the terminal.
 
-First, configure your AWS CLI using your credentials (Access Key ID and Secret Access Key)
+First, configure your AWS CLI using your credentials (Access Key ID and Secret Access Key). Run `aws configure` and follow the prompt:  
 
 ```
 Access Key ID = ***
