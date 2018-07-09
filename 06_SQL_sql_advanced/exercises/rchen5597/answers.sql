@@ -1,4 +1,8 @@
 -- Advanced SQL
+
+-- References:
+-- https://stackoverflow.com/questions/8660203/how-to-check-for-is-not-null-and-is-not-empty-string-in-sql-server
+
 -- # Before we start
 -- ## The notes
 -- ## Test your connection
@@ -21,18 +25,38 @@ select
         v.inspection,
         v.license_num,
         v.date,
-        extract(year from v.date)::int,  -- crq: some change here
+        extract(year from v.date)::int,  -- crq: changed
         json_agg(
-                 json_build_object('code',v.code, -- crq: some change here
-                                   'description', v.description,  -- crq: some change here
-                                   'comment',v.comment)  -- crq: some change here
+                 json_build_object('code',v.code, -- crq: changed
+                                   'description', v.description,  -- crq: changed
+                                   'comment',v.comment)  -- crq: changed
         ) as violations
 from cleaned.violations as v
 where inspection  = '2078651'
 group by v.inspection, v.license_num, v.date; 
 -- We need a group by since we are using an aggregator function
 
--- ## Hands-on
+-- ## Hands-on: Estimated time: 1 minute Manipulate the previous query statement 
+--              and try to join it with the inspections (You should get only one row)
+
+with new_table as (
+    select
+            v.inspection,
+            v.license_num,
+            v.date,
+            extract(year from v.date)::int,  -- crq: changed
+            json_agg(
+                     json_build_object('code',v.code, -- crq: changed
+                                       'description', v.description,  -- crq: changed
+                                       'comment',v.comment)  -- crq: changed
+            ) as violations
+    from cleaned.violations as v
+    where inspection  = '2078651'
+    group by v.inspection, v.license_num, v.date
+)
+select * from (cleaned.inspections right join new_table on cleaned.inspections.inspection = new_table.inspection)
+-- crq: `right join` outputs a subset of the table on the right, i.e. `new_table`
+
 
 -- # Cleaning your code and (maybe) gaining a little speed: CTEs
 with new_violations as (
@@ -40,7 +64,7 @@ with new_violations as (
         v.inspection,
         v.license_num,
         v.date,
-        extract(year from v.date)::int,  -- crq: some change here
+        extract(year from v.date)::int,  -- crq: changed
         json_agg(
                  json_build_object('code',v.code, -- crq: changed
                                    'description', v.description, -- crq: changed
@@ -56,7 +80,65 @@ left join new_violations as v -- Here we are using the "common table"
 using (inspection); -- crq: this is the key used for joining
 -- crq: match the different table / query names above 
 
+
+
+-- crq: multiple with clauses below. Here we have two with clauses. 
+-- crq: a good exercise is to match the different table / query names below
+with new_violations as (
+    select
+        v.inspection as inspection_tmp,
+        v.license_num,
+        v.date,
+        extract(year from v.date)::int,  -- crq: changed
+        json_agg(
+                 json_build_object('code',v.code, -- crq: changed
+                                   'description', v.description, -- crq: changed
+                                   'comment',v.comment)  -- crq: changed
+        ) as sub_violations
+    from cleaned.violations as v
+    where inspection  = '2078651'
+    group by v.inspection, v.license_num, v.date
+),
+new_table as (
+    select
+            v.inspection as inspection_tmp,
+            v.license_num,
+            v.date,
+            extract(year from v.date)::int,  -- crq: changed
+            json_agg(
+                     json_build_object('code',v.code, -- crq: changed
+                                       'description', v.description,  -- crq: changed
+                                       'comment',v.comment)  -- crq: changed
+            ) as violations
+    from cleaned.violations as v
+    where inspection  = '2078651'
+    group by v.inspection, v.license_num, v.date
+)
+select i.*, v.sub_violations
+from new_table as i
+left join new_violations as v -- Here we are using the "common table"
+using (inspection_tmp); -- crq: this is the key used for joining
+-- crq: join. We can join using `on table_a.keyword_a = table_b.keyword_b`. 
+-- If keyword_a and keyword_b are the same, say, both are `someWord`, we can just say `using someWord`. 
+
+
 -- # Querying unstructured data
+
+select
+    -- event_id as inspection, -- crq: changed
+    jsonb_array_elements(violations) as violations -- Each entry in the violations column is a json file
+from semantic.inspections
+where event_id = '104246'
+limit 2;
+
+select
+    event_id as inspection, -- crq: changed
+    jsonb_array_elements(violations) as violations -- Each entry in the violations column is a json file
+    -- e.g. {"code": "30", "comment": "All food not stored in the original container shall be stored in properly labeled containers. CORRECTED ON 1-14-10", "severity": "minor", "description": "FOOD IN ORIGINAL CONTAINER, PROPERLY LABELED: CUSTOMER ADVISORY POSTED AS NEEDED"}
+from semantic.inspections
+where event_id = '104246';
+
+
 with new_violations as (
      select
         event_id as inspection, -- crq: changed
@@ -64,22 +146,134 @@ with new_violations as (
      from semantic.inspections
      where event_id = '104246' -- crq: ? Can I call this `inspection` also? 
 )
-select inspection,
+select inspection as inspection_tmp,
+       violations ->> 'code' as violation_code_tmp, -- We want the value of the key 'code'
+       violations ->> 'severity' as severity_tmp, -- crq: get the `severity` field out of the json file
+       count(*)
+from new_violations
+group by inspection_tmp, violation_code_tmp, severity_tmp; 
+
+-- crq: play with `group by`
+
+select
+    event_id as inspection, -- crq: changed
+    jsonb_array_elements(violations) as violations -- This returns several rows
+from semantic.inspections
+where event_id = '104246'; -- crq: ? Can I call this `inspection` also?
+     
+-- crq: ? todo, not sure why the first chunk below works but the second doesn't. Differ in last lime.
+-- crq: ? error message: Must appear in the GROUP BY clause or be used in an aggregate function
+-- crq: chunk one. Works
+with new_violations as (
+     select
+        event_id as inspection, -- crq: changed
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from semantic.inspections
+     where event_id = '104246' -- crq: ? Can I call this `inspection` also? 
+)
+select inspection as inspection_tmp,
+       violations ->> 'code' as violation_code_tmp, -- We want the value of the key 'code'
+       violations ->> 'severity' as severity_tmp -- crq: get the `severity` field out of the json file
+from new_violations
+group by violation_code_tmp, inspection_tmp, severity_tmp; 
+
+-- crq: chunk two. Does not work.
+with new_violations as (
+     select
+        event_id as inspection, -- crq: changed
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from semantic.inspections
+     where event_id = '104246' -- crq: ? Can I call this `inspection` also? 
+)
+select inspection as inspection_tmp,
+       violations ->> 'code' as violation_code_tmp, -- We want the value of the key 'code'
+       violations ->> 'severity' as severity_tmp -- crq: get the `severity` field out of the json file
+from new_violations
+group by violation_code_tmp, severity_tmp; 
+
+
+
+
+with new_violations as (
+     select
+        event_id as inspection, -- crq: changed
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from semantic.inspections
+     where event_id = '104246' -- crq: ? Can I call this `inspection` also? 
+)
+select inspection as inspection_tmp,
        violations ->> 'code' as violation_code, -- We want the value of the key 'code'
        count(*)
 from new_violations
-group by inspection, violation_code;  -- crq: changed 
--- crq: ? these must be here, else errors happen. Why?
--- crq: ? Why do we still have `group by`? I already fixed to have `event_id` = 104246
+group by inspection_tmp, violation_code;  -- crq: changed 
+-- crq: ? todo these must be here, else errors happen. Why?
+-- crq: ? todo Why do we still have `group by`? I already fixed to have `event_id` = 104246
 
--- ## Hands-on
+
+-- ## Hands-on: Estimated time: 2 minutes Modify this query to get the facility (using license_num) 
+--             in which the inspectors found the biggest number of violation code 40.
+
+
+
+with new_table as (
+    with new_violations as (
+     select
+         license_num,
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from (semantic.inspections inner join semantic.entities using (entity_id))
+    )
+    select 
+        license_num,
+        violations ->> 'code' as violation_code_tmp  
+    from new_violations
+    where violations ->> 'code'  is not null
+)
+select license_num, count(*) from new_table where violation_code_tmp = '40' group by license_num order by count(*) desc limit 3;
+
+
+-- crq: see what violation codes there are 
+with new_table as (
+    with new_violations as (
+     select
+         license_num,
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from (semantic.inspections inner join semantic.entities using (entity_id))
+    )
+    select 
+        license_num,
+        violations ->> 'code' as violation_code_tmp  
+    from new_violations
+    where violations ->> 'code'  is not null
+)
+select distinct violation_code_tmp from new_table order by violation_code_tmp asc;
+
+-- hands on solution: get the top three facilities (identified by facility_num) with the most code-40 violation
+with new_table as (
+    with new_violations as (
+     select
+         license_num,
+        jsonb_array_elements(violations) as violations -- This returns several rows
+     from (semantic.inspections inner join semantic.entities using (entity_id))
+    )
+    select 
+        license_num,
+        violations ->> 'code' as violation_code_tmp  
+    from new_violations
+    where violations ->> 'code'  is not null and violations ->> 'code'  <> ''  -- crq: useful, check if entry is not empty space.
+)
+select license_num, count(*) from new_table where violation_code_tmp::int4 = 40 group by license_num order by count(*) desc limit 3;
+
 
 -- # “Datawarehousing”
 
 -- ## Hands-on
+--         Generate data for a BI dashboard, that shows all total number of inspections, 
+--      and their results, per city, facility type, month, year including totals and subtotals
+-- crq: ? todo. que? no entiendo.
 
 -- ## Datawarehousing functions
 -- This doesn't give you the subtotals and totals
+
 select
         date_part('month', date)::int4 as mm,
         date_part('year', date)::int4 as yy,
@@ -95,6 +289,50 @@ group by date_part('month', date), yy, ff, rr; -- crq: ? Why do I have to group 
 --group by CUBE (month, year, city, facility_type, results)
 
 -- ## Hands-on
+
+-- crq: ? todo. Can spend some more time here. 
+--         The three code chunks below work, but what do they do? They differ in the group by clauses. 
+--         Compare the output and find the differences.
+
+select
+        date_part('month', date)::int4 as mm,
+        date_part('year', date)::int4 as yy,
+        -- city, -- crq: ? how to map zipcode to city?
+        facility_type as ff,
+        result as rr,
+        count(*) as number_of_inspections
+from semantic.inspections
+where date_part('year', date) = 2017 and date_part('month', date) = 1
+group by GROUPING SETS (mm, yy, ff, rr, ())
+
+
+
+select
+        date_part('month', date)::int4 as mm,
+        date_part('year', date)::int4 as yy,
+        -- city, -- crq: ? how to map zipcode to city?
+        facility_type as ff,
+        result as rr,
+        count(*) as number_of_inspections
+from semantic.inspections
+where date_part('year', date) = 2017 and date_part('month', date) = 1
+group by ROLLUP (mm, yy, ff, rr)
+
+
+
+select
+        date_part('month', date)::int4 as mm,
+        date_part('year', date)::int4 as yy,
+        -- city, -- crq: ? how to map zipcode to city?
+        facility_type as ff,
+        result as rr,
+        count(*) as number_of_inspections
+from semantic.inspections
+where date_part('year', date) = 2017 and date_part('month', date) = 1
+group by CUBE (mm, yy, ff, rr)
+
+-- crq: todo. Continue from here. 
+
 
 -- # Analytical Questions: Looking through the window
 
@@ -125,9 +363,12 @@ select v.date from (semantic.inspections as v left join raw.inspections on v.eve
 
 -- crq: this does NOT run because of the `useless_name`. Why? 
 -- crq: ? todo error: `There is an entry for table … but it cannot be referenced from this part of the query`. Ref:https://stackoverflow.com/questions/6347897/mixing-explicit-and-implicit-joins-fails-with-there-is-an-entry-for-table-b 
-select v.date from (semantic.inspections as v left join raw.inspections on v.event_id::int4 = raw.inspections.inspection::int4) useless_name; -- crq: throws error
+select my_date from (select v.date as my_date, * from semantic.inspections as v left join raw.inspections on v.event_id::int4 = raw.inspections.inspection::int4) as useless_name; -- crq: throws error
+select v.date from (semantic.inspections as v left join raw.inspections on v.event_id::int4 = raw.inspections.inspection::int4); -- crq: throws error
+
 
 select city from (semantic.inspections as table_a left join raw.inspections on table_a.event_id::int4 = raw.inspections.inspection::int4)
+
 where extract(year from table_a.date)::int4 = 2017;
 
 select
